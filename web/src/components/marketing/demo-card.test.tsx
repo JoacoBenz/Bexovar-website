@@ -2,7 +2,11 @@ import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { DemoCard } from "./demo-card";
 
+const plausibleSpy = vi.fn();
+vi.mock("next-plausible", () => ({ usePlausible: () => plausibleSpy }));
+
 beforeEach(() => {
+  plausibleSpy.mockClear();
   window.matchMedia = vi.fn().mockImplementation((query: string) => ({
     matches: false,
     media: query,
@@ -51,5 +55,15 @@ describe("DemoCard", () => {
       "src",
       "/demos/invoice-triage.mp4",
     );
+  });
+
+  it("fires a Plausible demo_play event with slug and category on play click", () => {
+    render(<DemoCard demo={demo} />);
+    fireEvent.click(
+      screen.getByRole("button", { name: /play ap invoice triage & coding video/i }),
+    );
+    expect(plausibleSpy).toHaveBeenCalledWith("demo_play", {
+      props: { slug: "invoice-triage", category: "Finance" },
+    });
   });
 });
