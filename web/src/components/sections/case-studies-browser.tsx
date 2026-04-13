@@ -43,7 +43,8 @@ export function CaseStudiesBrowser({
   }, [industries, serviceSlugs, serviceLabel]);
 
   const activeLabel = valueToLabel.get(active) ?? "All";
-  const industrySet = new Set<string>(industries);
+
+  const industrySet = useMemo(() => new Set<string>(industries), [industries]);
 
   const visible = useMemo(() => {
     if (active === "All") return caseStudies;
