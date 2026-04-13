@@ -44,3 +44,35 @@ test("unknown URL renders the 404 page", async ({ page }) => {
   expect(res?.status()).toBe(404);
   await expect(page.getByRole("heading", { name: /page not found/i })).toBeVisible();
 });
+
+test("/demos renders hero, all categories as chips, and at least one card", async ({
+  page,
+}) => {
+  await page.goto("/demos");
+  await expect(page.getByRole("heading", { name: /see what we've shipped/i })).toBeVisible();
+  for (const cat of ["Finance", "Logistics", "Healthcare", "RPA", "Integrations", "AI agents"]) {
+    await expect(page.getByRole("button", { name: cat, exact: true })).toBeVisible();
+  }
+  await expect(page.getByRole("button", { name: /^play .* video$/i }).first()).toBeVisible();
+});
+
+test("/demos category filter narrows the grid", async ({ page }) => {
+  await page.goto("/demos");
+  await page.getByRole("button", { name: "Finance", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Finance", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  const cards = page.getByRole("article");
+  const count = await cards.count();
+  expect(count).toBeGreaterThan(0);
+  for (let i = 0; i < count; i++) {
+    await expect(cards.nth(i)).toContainText("Finance");
+  }
+});
+
+test("homepage demos strip links to the gallery", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: /browse full demo gallery/i }).click();
+  await expect(page).toHaveURL(/\/demos$/);
+});
