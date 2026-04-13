@@ -19,7 +19,7 @@ export type Demo = {
   videoSrc?: string;
 };
 
-export const demos: readonly Demo[] = [
+export const demos = [
   {
     slug: "invoice-triage",
     title: "AP invoice triage & coding",
@@ -80,7 +80,7 @@ export const demos: readonly Demo[] = [
     poster: "/demos/ops-copilot.svg",
     videoSrc: "/demos/ops-copilot.mp4",
   },
-];
+] as const satisfies readonly Demo[];
 
 export const featuredDemoSlugs = [
   "invoice-triage",
@@ -89,8 +89,6 @@ export const featuredDemoSlugs = [
 ] as const;
 
 export function getFeaturedDemos(): readonly Demo[] {
-  const order = new Map(demos.map((d, i) => [d.slug, i]));
-  return demos
-    .filter((d) => (featuredDemoSlugs as readonly string[]).includes(d.slug))
-    .sort((a, b) => (order.get(a.slug)! - order.get(b.slug)!));
+  const slugSet = new Set<string>(featuredDemoSlugs);
+  return demos.filter((d) => slugSet.has(d.slug));
 }
