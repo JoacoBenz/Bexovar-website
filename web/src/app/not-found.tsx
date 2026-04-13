@@ -11,7 +11,7 @@ export default function NotFound() {
           <p className="text-eyebrow uppercase text-accent mb-4">404</p>
           <h1 className="text-display text-ink">Page not found.</h1>
           <p className="mt-6 text-lg text-ink-muted max-w-xl">
-            The page you're looking for moved, or never existed. Either way — not what you wanted.
+            The page you&apos;re looking for moved, or never existed. Either way — not what you wanted.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href="/" size="lg">Back to home</Button>
