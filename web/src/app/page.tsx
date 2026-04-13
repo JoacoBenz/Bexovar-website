@@ -1,52 +1,57 @@
+import type { Metadata } from "next";
+import { HeroOutcomes } from "@/components/sections/hero-outcomes";
+import { ProofStrip } from "@/components/sections/proof-strip";
+import { DemosStrip } from "@/components/sections/demos-strip";
+import { ServicesGrid } from "@/components/sections/services-grid";
+import { FeaturedCase } from "@/components/sections/featured-case";
+import { ProcessStrip } from "@/components/sections/process-strip";
+import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
-import { CTASection } from "@/components/sections/cta-section";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { OrbitalGraphic } from "@/components/graphics/orbital-graphic";
+import { home } from "@/content/home";
+import { services } from "@/content/services";
 import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  description:
+    "Bexovar builds custom software and intelligent automation for mid-market operators. Cut operational cost 30–60%. Book a call to see a live demo on your workflow.",
+};
 
 export default function HomePage() {
   return (
     <>
-      <section className="py-20 md:py-28">
-        <Container className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-eyebrow uppercase text-accent mb-4">Foundation preview</p>
-            <h1 className="text-display text-ink">
-              Bexovar site foundation
-            </h1>
-            <p className="mt-6 text-lg text-ink-muted max-w-xl">
-              This page is a placeholder exercising the design system and shared components.
-              Real homepage content lands in Plan 2.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={siteConfig.cta.primary.href} size="lg">Book a call</Button>
-              <Button href="#" variant="secondary" size="lg">Secondary action</Button>
-            </div>
-          </div>
-          <OrbitalGraphic />
-        </Container>
-      </section>
+      <HeroOutcomes
+        eyebrow={home.hero.eyebrow}
+        title={home.hero.title}
+        body={home.hero.body}
+        industries={home.hero.industries}
+        primary={siteConfig.cta.primary}
+        secondary={{ href: "/demos", label: "See demos" }}
+      />
+      <ProofStrip metrics={home.metrics} />
+      <DemosStrip demos={home.demos} />
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
           <SectionHeader
-            eyebrow="Primitives"
-            title="Cards render like this"
-            subtitle="Verifying the Card primitive with hover elevation."
+            eyebrow="Services"
+            title="What we build"
+            subtitle="Most engagements blend these. We help you pick the mix."
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <Card><h3 className="text-h3">Custom Software</h3><p className="mt-2 text-ink-muted">Placeholder.</p></Card>
-            <Card><h3 className="text-h3">RPA & Agents</h3><p className="mt-2 text-ink-muted">Placeholder.</p></Card>
-            <Card><h3 className="text-h3">Integrations</h3><p className="mt-2 text-ink-muted">Placeholder.</p></Card>
+          <div className="mt-10">
+            <ServicesGrid
+              withContainer={false}
+              items={services.map((s) => ({ slug: s.slug, title: s.title, summary: s.summary }))}
+            />
           </div>
         </Container>
       </section>
 
+      <FeaturedCase {...home.featuredCase} />
+      <ProcessStrip steps={home.process} />
       <CTASection
-        heading="Ready to see what this looks like on your workflow?"
-        subtitle="30-min call. We'll show you a live demo built around your actual process."
+        heading={home.closingCta.heading}
+        subtitle={home.closingCta.subtitle}
         primary={siteConfig.cta.primary}
         secondary={siteConfig.cta.secondary}
       />
