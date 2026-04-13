@@ -4,12 +4,6 @@ export type Metric = {
   detail: string;
 };
 
-export type DemoPlaceholder = {
-  title: string;
-  duration: string;
-  summary: string;
-};
-
 export type ProcessStep = {
   number: string;
   title: string;
@@ -29,11 +23,6 @@ export const home = {
     { industry: "Healthcare", headline: "$480K", detail: "annual savings, year one" },
     { industry: "Retail", headline: "3 FTE", detail: "reallocated to growth work" },
   ] satisfies Metric[],
-  demos: [
-    { title: "Invoice OCR → ERP", duration: "60s", summary: "Automated accounts-payable intake with audit trail." },
-    { title: "Email triage agent", duration: "45s", summary: "Classifies and routes support mail without rule lists." },
-    { title: "Inventory sync", duration: "30s", summary: "Keeps warehouse and storefront stock aligned." },
-  ] satisfies DemoPlaceholder[],
   featuredCase: {
     eyebrow: "Featured case",
     title: "How a mid-market logistics firm cut reconciliation from 4 days to 4 hours",

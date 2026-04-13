@@ -9,6 +9,7 @@ import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
 import { home } from "@/content/home";
+import { getFeaturedDemos } from "@/content/demos";
 import { services } from "@/content/services";
 import { siteConfig } from "@/lib/site-config";
 
@@ -29,7 +30,7 @@ export default function HomePage() {
         secondary={{ href: "/demos", label: "See demos" }}
       />
       <ProofStrip metrics={home.metrics} />
-      <DemosStrip demos={home.demos} />
+      <DemosStrip demos={getFeaturedDemos()} />
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
