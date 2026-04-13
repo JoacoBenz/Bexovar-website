@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — Bexovar | Custom Software & Automation</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Explore our comprehensive services: custom software development, RPA automation, systems integration, and optimization consulting.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Services — Bexovar | Custom Software & Automation">
+    <meta property="og:description" content="Explore our comprehensive services: custom software development, RPA automation, systems integration, and optimization consulting.">
+    <meta property="og:url" content="https://bexovar.io/services">
+    <meta property="og:site_name" content="Bexovar">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Services — Bexovar | Custom Software & Automation">
+    <meta name="twitter:description" content="Explore our comprehensive services: custom software development, RPA automation, systems integration, and optimization consulting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Analytics: Uncomment ONE of the options below -->
+    <!-- Option 1: Google Analytics — replace GA_MEASUREMENT_ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    <!-- Option 2: Plausible Analytics (privacy-friendly) — replace yourdomain.com -->
+    <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ═════════════════════════════════════════════════════════
+           SERVICES PAGE — Custom Styles
+           ═════════════════════════════════════════════════════════ */
+
+        /* ─── Service Section ─────────────────────────────────── */
+        .service-section {
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .service-section.reverse {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        .service-section.reverse > * {
+            direction: ltr;
+        }
+
+        .service-content {
+            z-index: 2;
+        }
+
+        .service-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 400px;
+        }
+
+        .service-icon {
+            font-size: 6rem;
+            opacity: 0.15;
+            position: absolute;
+        }
+
+        .service-icon-bg {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(0, 194, 203, 0.1) 0%, rgba(0, 229, 208, 0.05) 100%);
+            border: 1px solid rgba(0, 194, 203, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-icon-inner {
+            font-size: 4rem;
+            opacity: 0.6;
+        }
+
+        .service-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .service-section .section-tag {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            background: rgba(0, 194, 203, 0.08);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+        }
+
+        .service-description {
+            color: var(--light-gray);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list li {
+            padding: 0.6rem 0;
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+
+        .feature-subheading {
+            color: var(--white);
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ─── Tech Stack Section ──────────────────────────────── */
+        .tech-stack-section {
+            padding: 5rem 2rem;
+            background: var(--bg-mid);
+            text-align: center;
+        }
+
+        .tech-stack-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .tech-category h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(0, 194, 203, 0.08);
+            border: 1px solid rgba(0, 194, 203, 0.2);
+            color: var(--light-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-badge:hover {
+            background: rgba(0, 194, 203, 0.15);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ─── Service Decision CTA ────────────────────────────── */
+        .decision-cta {
+            padding: 5rem 2rem;
+            background: var(--bg-card);
+            text-align: center;
+        }
+
+        .decision-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .decision-content h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .decision-content p {
+            color: var(--light-gray);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .decision-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ─── Background Alternation ──────────────────────────── */
+        .service-section:nth-child(odd) {
+            background: var(--bg-dark);
+        }
+
+        .service-section:nth-child(even) {
+            background: var(--bg-mid);
+        }
+
+        /* ─── Responsive ──────────────────────────────────────── */
+        @media (max-width: 968px) {
+            .service-section,
+            .service-section.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2.5rem;
+                padding: 4rem 1.5rem;
+            }
+
+            .service-section.reverse > * {
+                direction: ltr;
+            }
+
+            .service-visual {
+                height: 300px;
+            }
+
+            .service-icon-bg {
+                width: 220px;
+                height: 220px;
+            }
+
+            .service-icon-inner {
+                font-size: 3rem;
+            }
+
+            .service-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .tech-categories {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .decision-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .decision-buttons .btn-primary,
+            .decision-buttons .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .service-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .service-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-visual {
+                height: 250px;
+            }
+
+            .service-icon-bg {
+                width: 180px;
+                height: 180px;
+            }
+
+            .service-icon-inner {
+                font-size: 2.5rem;
+            }
+
+            .tech-stack-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .decision-cta {
+                padding: 3rem 1.5rem;
+            }
+
+            .decision-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature-list li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">BEXOVAR</a>
+        <div class="nav-links" id="navLinks">
+            <a href="services.html" class="active"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+            <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="contact.html" class="nav-cta"><span data-lang="en">Get Started</span><span data-lang="es">Empezar</span></a>
+        </div>
+        <button class="mobile-menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero fade-in">
+        <h1 data-lang="en">Our Services</h1>
+        <h1 data-lang="es">Nuestros Servicios</h1>
+        <p data-lang="en">End-to-end automation solutions designed to transform your operations and drive measurable business impact.</p>
+        <p data-lang="es">Soluciones de automatización integral diseñadas para transformar tus operaciones e impulsar resultados empresariales medibles.</p>
+    </section>
+
+    <!-- SERVICE 1: CUSTOM SOFTWARE DEVELOPMENT -->
+    <section class="service-section fade-in">
+        <div class="service-content">
+            <span class="section-tag" data-lang="en">Custom Development</span>
+            <span class="section-tag" data-lang="es">Desarrollo a Medida</span>
+
+            <h2 data-lang="en">Custom Software Development</h2>
+            <h2 data-lang="es">Desarrollo de Software a Medida</h2>
+
+            <p class="service-description" data-lang="en">Modern, scalable applications built for your exact workflow. From internal tools to customer platforms.</p>
+            <p class="service-description" data-lang="es">Aplicaciones modernas y escalables para tu flujo de trabajo exacto. Desde herramientas internas hasta plataformas para clientes.</p>
+
+            <div class="service-features">
+                <div class="feature-subheading" data-lang="en">Core Features</div>
+                <div class="feature-subheading" data-lang="es">Características Principales</div>
+                <ul class="feature-list">
+                    <li data-lang="en">Cloud-native architecture</li>
+                    <li data-lang="es">Arquitectura nativa en la nube</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Modern tech stack (React, Node, Python)</li>
+                    <li data-lang="es">Stack tecnológico moderno (React, Node, Python)</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">API-first design</li>
+                    <li data-lang="es">Diseño API-first</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Real-time monitoring</li>
+                    <li data-lang="es">Monitoreo en tiempo real</li>
+                </ul>
+
+                <div class="feature-subheading" data-lang="en">Use Cases</div>
+                <div class="feature-subheading" data-lang="es">Casos de Uso</div>
+                <ul class="feature-list">
+                    <li data-lang="en">Internal tools and dashboards</li>
+                    <li data-lang="es">Herramientas internas y paneles</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Customer portals</li>
+                    <li data-lang="es">Portales de clientes</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Data pipelines and ETL</li>
+                    <li data-lang="es">Tuberías de datos y ETL</li>
+                </ul>
+            </div>
+
+            <button class="btn-primary service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                <span data-lang="en">Get Started</span>
+                <span data-lang="es">Empezar</span>
+                <span>→</span>
+            </button>
+        </div>
+
+        <div class="service-visual">
+            <div class="service-icon-bg">
+                <div class="service-icon-inner">💻</div>
+            </div>
+            <div class="service-icon">∴</div>
+        </div>
+    </section>
+
+    <!-- SERVICE 2: RPA / PROCESS AUTOMATION -->
+    <section class="service-section reverse fade-in">
+        <div class="service-visual">
+            <div class="service-icon-bg">
+                <div class="service-icon-inner">⚙️</div>
+            </div>
+            <div class="service-icon">∴</div>
+        </div>
+
+        <div class="service-content">
+            <span class="section-tag" data-lang="en">Process Automation</span>
+            <span class="section-tag" data-lang="es">Automatización de Procesos</span>
+
+            <h2 data-lang="en">Process Automation (RPA)</h2>
+            <h2 data-lang="es">Automatización de Procesos (RPA)</h2>
+
+            <p class="service-description" data-lang="en">Bots that work 24/7 on repetitive tasks. Free your team for strategic work.</p>
+            <p class="service-description" data-lang="es">Bots que trabajan 24/7 en tareas repetitivas. Libera a tu equipo para trabajo estratégico.</p>
+
+            <div class="service-features">
+                <div class="feature-subheading" data-lang="en">Core Features</div>
+                <div class="feature-subheading" data-lang="es">Características Principales</div>
+                <ul class="feature-list">
+                    <li data-lang="en">Intelligent bot development</li>
+                    <li data-lang="es">Desarrollo inteligente de bots</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Workflow automation</li>
+                    <li data-lang="es">Automatización de flujos de trabajo</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Document processing (OCR/AI)</li>
+                    <li data-lang="es">Procesamiento de documentos (OCR/IA)</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">99.9% uptime guarantee</li>
+                    <li data-lang="es">Garantía de 99.9% disponibilidad</li>
+                </ul>
+
+                <div class="feature-subheading" data-lang="en">Use Cases</div>
+                <div class="feature-subheading" data-lang="es">Casos de Uso</div>
+                <ul class="feature-list">
+                    <li data-lang="en">Invoice and payment processing</li>
+                    <li data-lang="es">Procesamiento de facturas y pagos</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Data entry and validation</li>
+                    <li data-lang="es">Entrada y validación de datos</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Automated report generation</li>
+                    <li data-lang="es">Generación automática de reportes</li>
+                </ul>
+            </div>
+
+            <button class="btn-primary service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                <span data-lang="en">Learn More</span>
+                <span data-lang="es">Más Información</span>
+                <span>→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- SERVICE 3: SYSTEMS INTEGRATION -->
+    <section class="service-section fade-in">
+        <div class="service-content">
+            <span class="section-tag" data-lang="en">Integration</span>
+            <span class="section-tag" data-lang="es">Integración</span>
+
+            <h2 data-lang="en">Systems Integration</h2>
+            <h2 data-lang="es">Integración de Sistemas</h2>
+
+            <p class="service-description" data-lang="en">Connect your disconnected systems with robust APIs. One data flow, zero manual transfers.</p>
+            <p class="service-description" data-lang="es">Conecta tus sistemas con APIs robustas. Un flujo de datos, cero transferencias manuales.</p>
+
+            <div class="service-features">
+                <div class="feature-subheading" data-lang="en">Core Features</div>
+                <div class="feature-subheading" data-lang="es">Características Principales</div>
+                <ul class="feature-list">
+                    <li data-lang="en">REST and GraphQL APIs</li>
+                    <li data-lang="es">APIs REST y GraphQL</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Middleware solutions</li>
+                    <li data-lang="es">Soluciones middleware</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Real-time data sync</li>
+                    <li data-lang="es">Sincronización datos en tiempo real</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Legacy system migration</li>
+                    <li data-lang="es">Migración de sistemas heredados</li>
+                </ul>
+
+                <div class="feature-subheading" data-lang="en">Use Cases</div>
+                <div class="feature-subheading" data-lang="es">Casos de Uso</div>
+                <ul class="feature-list">
+                    <li data-lang="en">CRM ↔ ERP synchronization</li>
+                    <li data-lang="es">Sincronización CRM ↔ ERP</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Payment gateway integration</li>
+                    <li data-lang="es">Integración de puertas de pago</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Data orchestration</li>
+                    <li data-lang="es">Orquestación de datos</li>
+                </ul>
+            </div>
+
+            <button class="btn-primary service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                <span data-lang="en">Get Started</span>
+                <span data-lang="es">Empezar</span>
+                <span>→</span>
+            </button>
+        </div>
+
+        <div class="service-visual">
+            <div class="service-icon-bg">
+                <div class="service-icon-inner">🔗</div>
+            </div>
+            <div class="service-icon">∴</div>
+        </div>
+    </section>
+
+    <!-- SERVICE 4: OPTIMIZATION CONSULTING -->
+    <section class="service-section reverse fade-in">
+        <div class="service-visual">
+            <div class="service-icon-bg">
+                <div class="service-icon-inner">📊</div>
+            </div>
+            <div class="service-icon">∴</div>
+        </div>
+
+        <div class="service-content">
+            <span class="section-tag" data-lang="en">Consulting</span>
+            <span class="section-tag" data-lang="es">Consultoría</span>
+
+            <h2 data-lang="en">Optimization Consulting</h2>
+            <h2 data-lang="es">Consultoría de Optimización</h2>
+
+            <p class="service-description" data-lang="en">We map your operations, find bottlenecks, and build a roadmap to maximize ROI.</p>
+            <p class="service-description" data-lang="es">Mapeamos tus operaciones, encontramos cuellos de botella y creamos un plan para maximizar el ROI.</p>
+
+            <div class="service-features">
+                <div class="feature-subheading" data-lang="en">Core Features</div>
+                <div class="feature-subheading" data-lang="es">Características Principales</div>
+                <ul class="feature-list">
+                    <li data-lang="en">Process mapping</li>
+                    <li data-lang="es">Mapeo de procesos</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Bottleneck analysis</li>
+                    <li data-lang="es">Análisis de cuellos de botella</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">ROI modeling</li>
+                    <li data-lang="es">Modelado de ROI</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Risk assessment</li>
+                    <li data-lang="es">Evaluación de riesgos</li>
+                </ul>
+
+                <div class="feature-subheading" data-lang="en">Deliverables</div>
+                <div class="feature-subheading" data-lang="es">Entregables</div>
+                <ul class="feature-list">
+                    <li data-lang="en">Operational audit report</li>
+                    <li data-lang="es">Informe de auditoría operativa</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">Implementation roadmap</li>
+                    <li data-lang="es">Hoja de ruta de implementación</li>
+                </ul>
+                <ul class="feature-list">
+                    <li data-lang="en">KPI and success metrics</li>
+                    <li data-lang="es">KPIs y métricas de éxito</li>
+                </ul>
+            </div>
+
+            <button class="btn-primary service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                <span data-lang="en">Schedule Consultation</span>
+                <span data-lang="es">Programar Consulta</span>
+                <span>→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY STACK -->
+    <section class="tech-stack-section fade-in">
+        <div class="tech-stack-container">
+            <div class="section-header">
+                <h2 data-lang="en">Our Technology Stack</h2>
+                <h2 data-lang="es">Nuestro Stack Tecnológico</h2>
+                <p data-lang="en">Industry-leading tools for robust, scalable solutions.</p>
+                <p data-lang="es">Herramientas líderes en la industria para soluciones robustas y escalables.</p>
+            </div>
+
+            <div class="tech-categories">
+                <div>
+                    <h3 data-lang="en">Frontend & UI</h3>
+                    <h3 data-lang="es">Frontend e Interfaz</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Vue.js</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">Tailwind CSS</span>
+                        <span class="tech-badge">Next.js</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 data-lang="en">Backend & APIs</h3>
+                    <h3 data-lang="es">Backend y APIs</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Express</span>
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">GraphQL</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 data-lang="en">Cloud & Infrastructure</h3>
+                    <h3 data-lang="es">Nube e Infraestructura</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Azure</span>
+                        <span class="tech-badge">GCP</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Kubernetes</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 data-lang="en">Databases</h3>
+                    <h3 data-lang="es">Bases de Datos</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">Elasticsearch</span>
+                        <span class="tech-badge">DynamoDB</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 data-lang="en">RPA & Automation</h3>
+                    <h3 data-lang="es">RPA y Automatización</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">UiPath</span>
+                        <span class="tech-badge">Blue Prism</span>
+                        <span class="tech-badge">Python RPA</span>
+                        <span class="tech-badge">Zapier</span>
+                        <span class="tech-badge">Make</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 data-lang="en">DevOps & Tools</h3>
+                    <h3 data-lang="es">DevOps y Herramientas</h3>
+                    <div class="tech-list">
+                        <span class="tech-badge">Git</span>
+                        <span class="tech-badge">CI/CD</span>
+                        <span class="tech-badge">Jenkins</span>
+                        <span class="tech-badge">GitHub Actions</span>
+                        <span class="tech-badge">Terraform</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DECISION CTA -->
+    <section class="decision-cta fade-in" id="contact">
+        <div class="decision-content">
+            <h2 data-lang="en">Not sure which service you need?</h2>
+            <h2 data-lang="es">¿No estás seguro de qué servicio necesitas?</h2>
+
+            <p data-lang="en">Our experts will analyze your needs and recommend the best approach. Start with a free consultation.</p>
+            <p data-lang="es">Nuestros expertos analizarán tus necesidades y recomendarán el mejor enfoque. Comienza con una consulta gratuita.</p>
+
+            <div class="decision-buttons">
+                <button class="btn-primary" onclick="alert('Contact form would open here')">
+                    <span data-lang="en">Schedule Free Consultation</span>
+                    <span data-lang="es">Programar Consulta Gratuita</span>
+                </button>
+                <button class="btn-secondary" onclick="alert('Email would open here')">
+                    <span data-lang="en">Email Us</span>
+                    <span data-lang="es">Envíanos un Email</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BEXOVAR</div>
+                <p><span data-lang="en">We turn repetitive processes into competitive advantages through custom software and intelligent automation.</span><span data-lang="es">Transformamos procesos repetitivos en ventajas competitivas mediante software a medida y automatización inteligente.</span></p>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Services</span><span data-lang="es">Servicios</span></h4>
+                <a href="services.html"><span data-lang="en">Custom Software</span><span data-lang="es">Software a Medida</span></a>
+                <a href="services.html"><span data-lang="en">RPA Automation</span><span data-lang="es">Automatización RPA</span></a>
+                <a href="services.html"><span data-lang="en">Systems Integration</span><span data-lang="es">Integración de Sistemas</span></a>
+                <a href="services.html"><span data-lang="en">Consulting</span><span data-lang="es">Consultoría</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                <a href="about.html"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a>
+                <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Connect</span><span data-lang="es">Conectar</span></h4>
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:hello@bexovar.io">hello@bexovar.io</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Bexovar. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></span>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

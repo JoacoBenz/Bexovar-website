@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Bexovar | Custom Software & Process Automation</title>
+    <meta name="description" content="See how Bexovar helped companies in logistics, fintech, and healthcare achieve 40-85% efficiency gains with custom software and automation.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Case Studies - Bexovar | Custom Software & Process Automation">
+    <meta property="og:description" content="See how Bexovar helped companies achieve 40-85% efficiency gains with custom software and automation.">
+    <meta property="og:url" content="https://bexovar.io/case-studies">
+    <meta property="og:site_name" content="Bexovar">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Case Studies - Bexovar | Custom Software & Process Automation">
+    <meta name="twitter:description" content="See how Bexovar helped companies achieve 40-85% efficiency gains with custom software and automation.">
+    <!-- Analytics: Uncomment ONE of the options below -->
+    <!-- Option 1: Google Analytics — replace GA_MEASUREMENT_ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    <!-- Option 2: Plausible Analytics (privacy-friendly) — replace yourdomain.com -->
+    <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page-specific styles for Case Studies — Dark Theme */
+        .case-study-container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .case-study-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .case-study-card.logistics { border-left-color: #FF6B6B; }
+        .case-study-card.fintech { border-left-color: #4ECDC4; }
+        .case-study-card.healthcare { border-left-color: #95E1D3; }
+
+        .case-study-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+        }
+
+        .case-study-title-section h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0 0 0.75rem 0;
+            color: var(--white);
+        }
+
+        .case-study-industry-tag {
+            display: inline-block;
+            background: rgba(0, 194, 203, 0.1);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-card.logistics .case-study-industry-tag {
+            background: rgba(255, 107, 107, 0.12);
+            color: #FF6B6B;
+        }
+
+        .case-study-card.fintech .case-study-industry-tag {
+            background: rgba(78, 205, 196, 0.12);
+            color: #4ECDC4;
+        }
+
+        .case-study-card.healthcare .case-study-industry-tag {
+            background: rgba(149, 225, 211, 0.12);
+            color: #95E1D3;
+        }
+
+        .case-study-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .tag {
+            background: var(--bg-mid);
+            padding: 0.3rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--light-gray);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+        }
+
+        .case-study-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-section h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-study-section p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--light-gray);
+            margin: 0;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 194, 203, 0.1);
+        }
+
+        .metric { text-align: center; }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-card.logistics .metric-value { color: #FF6B6B; }
+        .case-study-card.fintech .metric-value { color: #4ECDC4; }
+        .case-study-card.healthcare .metric-value { color: #95E1D3; }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 194, 203, 0.15) 0%, rgba(0, 229, 208, 0.08) 100%);
+            border: 1px solid rgba(0, 194, 203, 0.2);
+            color: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            margin: 0 0 2rem 0;
+            color: var(--light-gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            padding: 0.85rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 194, 203, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .case-study-card {
+                padding: 1.5rem;
+            }
+
+            .case-study-header {
+                flex-direction: column;
+            }
+
+            .case-study-content {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .metrics-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">BEXOVAR</a>
+        <div class="nav-links" id="navLinks">
+            <a href="services.html"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+            <a href="case-studies.html" class="active"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="contact.html" class="nav-cta"><span data-lang="en">Get Started</span><span data-lang="es">Empezar</span></a>
+        </div>
+        <button class="mobile-menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero fade-in">
+        <div class="hero-content">
+            <h1>Case Studies / Casos de Éxito</h1>
+            <p>Real results for real businesses / Resultados reales para negocios reales</p>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <div class="case-study-container">
+        <!-- Case Study 1: Logistics Company -->
+        <div class="case-study-card logistics fade-in">
+            <div class="case-study-header">
+                <div class="case-study-title-section">
+                    <div class="case-study-industry-tag">Logistics / Logística</div>
+                    <h3>Invoice Processing Automation / Automatización del Procesamiento de Facturas</h3>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Challenge / Desafío</h4>
+                    <p data-lang="en">Manual invoice processing across 3 countries. 12-person team, 72+ hour delays, frequent errors.</p>
+                    <p data-lang="es">Procesamiento manual de facturas en 3 países. Equipo de 12, demoras de 72+ horas, errores frecuentes.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Solution / Solución</h4>
+                    <p data-lang="en">Custom RPA bots for end-to-end invoice automation. AI-powered validation, multi-currency support, ERP integration.</p>
+                    <p data-lang="es">Bots RPA para automatización completa de facturas. Validación con IA, soporte multi-moneda, integración ERP.</p>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Results / Resultados</h4>
+                    <p data-lang="en">Deployed in 10 weeks. Full ROI within 6 months.</p>
+                    <p data-lang="es">Implementado en 10 semanas. ROI completo en 6 meses.</p>
+                </div>
+            </div>
+
+            <div class="case-study-tags">
+                <span class="tag">RPA</span>
+                <span class="tag">Document Processing / Procesamiento de Documentos</span>
+                <span class="tag">Logistics / Logística</span>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric">
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">Time Reduction / Reducción de Tiempo</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">99.2%</div>
+                    <div class="metric-label">Accuracy / Precisión</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">$120K</div>
+                    <div class="metric-label">Annual Savings / Ahorros Anuales</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 2: Fintech Startup -->
+        <div class="case-study-card fintech fade-in">
+            <div class="case-study-header">
+                <div class="case-study-title-section">
+                    <div class="case-study-industry-tag">Fintech</div>
+                    <h3>CRM and Pipeline Integration / Integración CRM y de Gestión de Oportunidades</h3>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Challenge / Desafío</h4>
+                    <p data-lang="en">Data fragmented across CRM, spreadsheets, and payment systems. Sales team lost hours on manual consolidation.</p>
+                    <p data-lang="es">Datos fragmentados entre CRM, planillas y sistemas de pago. El equipo de ventas perdía horas en consolidación manual.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Solution / Solución</h4>
+                    <p data-lang="en">Unified CRM platform connecting all data sources. Real-time dashboards, automated workflows, single source of truth.</p>
+                    <p data-lang="es">Plataforma CRM unificada conectando todas las fuentes. Dashboards en tiempo real, flujos automatizados, una única fuente de verdad.</p>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Results / Resultados</h4>
+                    <p data-lang="en">40% faster deal closure. Full deployment in 8 weeks.</p>
+                    <p data-lang="es">Cierre 40% más rápido. Implementación completa en 8 semanas.</p>
+                </div>
+            </div>
+
+            <div class="case-study-tags">
+                <span class="tag">Custom Software / Software Personalizado</span>
+                <span class="tag">API Integration / Integración de APIs</span>
+                <span class="tag">Fintech</span>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric">
+                    <div class="metric-value">40%</div>
+                    <div class="metric-label">Faster Deal Closure / Cierre Más Rápido</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Tools Eliminated / Herramientas Eliminadas</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Real-Time Visibility / Visibilidad en Tiempo Real</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study 3: Healthcare Provider -->
+        <div class="case-study-card healthcare fade-in">
+            <div class="case-study-header">
+                <div class="case-study-title-section">
+                    <div class="case-study-industry-tag">Healthcare / Salud</div>
+                    <h3>Unified Patient Scheduling / Sistema Unificado de Programación de Pacientes</h3>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Challenge / Desafío</h4>
+                    <p data-lang="en">Patient scheduling across 15 clinics was manual. Double-bookings, long wait times, staff overwhelmed.</p>
+                    <p data-lang="es">Agendamiento de pacientes en 15 clínicas era manual. Doble reservas, tiempos de espera largos, personal sobrecargado.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Solution / Solución</h4>
+                    <p data-lang="en">AI scheduling platform with smart allocation across all clinics. Patient portal, automated reminders, real-time availability.</p>
+                    <p data-lang="es">Plataforma de agendamiento con IA y asignación inteligente. Portal de pacientes, recordatorios automáticos, disponibilidad en tiempo real.</p>
+                </div>
+            </div>
+
+            <div class="case-study-content">
+                <div class="case-study-section">
+                    <h4>Results / Resultados</h4>
+                    <p data-lang="en">60% fewer conflicts. 35% reduction in no-shows. Launched in 12 weeks.</p>
+                    <p data-lang="es">60% menos conflictos. Reducción de 35% en no-shows. Lanzado en 12 semanas.</p>
+                </div>
+            </div>
+
+            <div class="case-study-tags">
+                <span class="tag">Systems Integration / Integración de Sistemas</span>
+                <span class="tag">Healthcare / Salud</span>
+                <span class="tag">Automation / Automatización</span>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric">
+                    <div class="metric-value">60%</div>
+                    <div class="metric-label">Fewer Conflicts / Menos Conflictos</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">35%</div>
+                    <div class="metric-label">No-Show Reduction / Reducción de No-Shows</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">40hrs</div>
+                    <div class="metric-label">Weekly Savings / Ahorros Semanales</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="case-study-container">
+        <div class="cta-section fade-in">
+            <h2>Want results like these? / ¿Quiere resultados como estos?</h2>
+            <p>Let's discuss how custom software and automation can transform your business. / Hablemos sobre cómo el software personalizado y la automatización pueden transformar su negocio.</p>
+            <a href="contact.html" class="cta-button">Get Started / Comenzar</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BEXOVAR</div>
+                <p><span data-lang="en">We turn repetitive processes into competitive advantages through custom software and intelligent automation.</span><span data-lang="es">Transformamos procesos repetitivos en ventajas competitivas mediante software a medida y automatización inteligente.</span></p>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Services</span><span data-lang="es">Servicios</span></h4>
+                <a href="services.html"><span data-lang="en">Custom Software</span><span data-lang="es">Software a Medida</span></a>
+                <a href="services.html"><span data-lang="en">RPA Automation</span><span data-lang="es">Automatización RPA</span></a>
+                <a href="services.html"><span data-lang="en">Systems Integration</span><span data-lang="es">Integración de Sistemas</span></a>
+                <a href="services.html"><span data-lang="en">Consulting</span><span data-lang="es">Consultoría</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                <a href="about.html"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a>
+                <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Connect</span><span data-lang="es">Conectar</span></h4>
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:hello@bexovar.io">hello@bexovar.io</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Bexovar. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></span>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

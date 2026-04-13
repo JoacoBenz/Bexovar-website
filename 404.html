@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Bexovar</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Analytics: Uncomment ONE of the options below -->
+    <!-- Option 1: Google Analytics — replace GA_MEASUREMENT_ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    <!-- Option 2: Plausible Analytics (privacy-friendly) — replace yourdomain.com -->
+    <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .error-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .error-content {
+            max-width: 560px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .error-content h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .error-content p {
+            font-size: 1.1rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-content h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">BEXOVAR</a>
+        <div class="nav-links" id="navLinks">
+            <a href="services.html"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+            <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="contact.html" class="nav-cta"><span data-lang="en">Get Started</span><span data-lang="es">Empezar</span></a>
+        </div>
+        <button class="mobile-menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+
+    <section class="error-section">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1>
+                <span data-lang="en">Page Not Found</span>
+                <span data-lang="es">Pagina No Encontrada</span>
+            </h1>
+            <p>
+                <span data-lang="en">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</span>
+                <span data-lang="es">La pagina que buscas no existe o ha sido movida. Volvamos al camino correcto.</span>
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">
+                    <span data-lang="en">Go Home</span>
+                    <span data-lang="es">Ir al Inicio</span>
+                </a>
+                <a href="contact.html" class="btn btn-secondary">
+                    <span data-lang="en">Contact Us</span>
+                    <span data-lang="es">Contactanos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BEXOVAR</div>
+                <p><span data-lang="en">We turn repetitive processes into competitive advantages through custom software and intelligent automation.</span><span data-lang="es">Transformamos procesos repetitivos en ventajas competitivas mediante software a medida y automatizacion inteligente.</span></p>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Services</span><span data-lang="es">Servicios</span></h4>
+                <a href="services.html"><span data-lang="en">Custom Software</span><span data-lang="es">Software a Medida</span></a>
+                <a href="services.html"><span data-lang="en">RPA Automation</span><span data-lang="es">Automatizacion RPA</span></a>
+                <a href="services.html"><span data-lang="en">Systems Integration</span><span data-lang="es">Integracion de Sistemas</span></a>
+                <a href="services.html"><span data-lang="en">Consulting</span><span data-lang="es">Consultoria</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                <a href="about.html"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a>
+                <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Exito</span></a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Connect</span><span data-lang="es">Conectar</span></h4>
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:hello@bexovar.io">hello@bexovar.io</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Bexovar. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></span>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

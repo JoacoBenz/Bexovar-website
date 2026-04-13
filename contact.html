@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bexovar | Custom Software & Process Automation</title>
+    <meta name="description" content="Get in touch with Bexovar. Book a free audit, schedule a consultation, or send us a message about your software and automation needs.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact - Bexovar | Custom Software & Process Automation">
+    <meta property="og:description" content="Get in touch with Bexovar. Book a free audit, schedule a consultation, or send us a message.">
+    <meta property="og:url" content="https://bexovar.io/contact">
+    <meta property="og:site_name" content="Bexovar">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Contact - Bexovar | Custom Software & Process Automation">
+    <meta name="twitter:description" content="Get in touch with Bexovar. Book a free audit, schedule a consultation, or send us a message.">
+    <!-- Analytics: Uncomment ONE of the options below -->
+    <!-- Option 1: Google Analytics — replace GA_MEASUREMENT_ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    <!-- Option 2: Plausible Analytics (privacy-friendly) — replace yourdomain.com -->
+    <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page-specific styles for Contact page */
+        .contact-hero {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+            animation: fadeIn 0.8s ease-in 0.2s both;
+        }
+
+        .contact-form-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 194, 203, 0.15);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 194, 203, 0.15);
+            animation: fadeIn 0.8s ease-in 0.3s both;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .contact-card p {
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-card .card-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .faq-section {
+            margin: 4rem 0;
+            animation: fadeIn 0.8s ease-in 0.4s both;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .accordion {
+            border: 1px solid rgba(0, 194, 203, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(0, 194, 203, 0.1);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .accordion-header:hover {
+            background-color: var(--bg-mid);
+        }
+
+        .accordion-toggle {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .accordion-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .accordion-item input[type="checkbox"]:checked ~ .accordion-header .accordion-toggle {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--bg-mid);
+        }
+
+        .accordion-item input[type="checkbox"]:checked ~ .accordion-content {
+            max-height: 500px;
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .accordion-header {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .accordion-body {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .contact-card {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .accordion-toggle {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .form-status.success {
+            background: rgba(0, 229, 208, 0.15);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+        .form-status.error {
+            background: rgba(249, 97, 103, 0.15);
+            border: 1px solid var(--danger);
+            color: var(--danger);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">BEXOVAR</a>
+        <div class="nav-links" id="navLinks">
+            <a href="services.html"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+            <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="contact.html" class="nav-cta active"><span data-lang="en">Get Started</span><span data-lang="es">Empezar</span></a>
+        </div>
+        <button class="mobile-menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero contact-hero">
+        <div class="container">
+            <h1><span data-lang="en">Get In Touch</span><span data-lang="es">Ponte en Contacto</span></h1>
+            <p><span data-lang="en">Let's start a conversation about your next project or challenge. We're here to help.</span><span data-lang="es">Iniciemos una conversación sobre tu próximo proyecto o desafío. Estamos aquí para ayudarte.</span></p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Contact Form & Info Section -->
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <!-- TODO: Replace YOUR_FORM_ID with your Formspree form ID from https://formspree.io -->
+                <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                    <!-- Name Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName"><span data-lang="en">Full Name</span><span data-lang="es">Nombre Completo</span></label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company"><span data-lang="en">Company Name</span><span data-lang="es">Nombre de la Empresa</span></label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                    </div>
+
+                    <!-- Email Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email"><span data-lang="en">Email</span><span data-lang="es">Correo Electrónico</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><span data-lang="en">Phone (Optional)</span><span data-lang="es">Teléfono (Opcional)</span></label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <!-- Service Select -->
+                    <div class="form-group">
+                        <label for="service"><span data-lang="en">Service Interested In</span><span data-lang="es">Servicio de Interés</span></label>
+                        <select id="service" name="service" required>
+                            <option value="" data-en="Select a service..." data-es="Selecciona un servicio...">Select a service...</option>
+                            <option value="custom-software" data-en="Custom Software Development" data-es="Desarrollo de Software Personalizado">Custom Software Development</option>
+                            <option value="automation" data-en="Process Automation" data-es="Automatización de Procesos">Process Automation</option>
+                            <option value="integration" data-en="Systems Integration" data-es="Integración de Sistemas">Systems Integration</option>
+                            <option value="consulting" data-en="Consulting" data-es="Consultoría">Consulting</option>
+                            <option value="not-sure" data-en="Not Sure Yet" data-es="Aún no estoy seguro">Not Sure Yet</option>
+                        </select>
+                    </div>
+
+                    <!-- Budget Select -->
+                    <div class="form-group">
+                        <label for="budget"><span data-lang="en">Estimated Budget</span><span data-lang="es">Presupuesto Estimado</span></label>
+                        <select id="budget" name="budget">
+                            <option value="" data-en="Select a budget range..." data-es="Selecciona un rango de presupuesto...">Select a budget range...</option>
+                            <option value="under-10k" data-en="Under $10K" data-es="Menos de $10K">Under $10K</option>
+                            <option value="10k-30k" data-en="$10K - $30K" data-es="$10K - $30K">$10K - $30K</option>
+                            <option value="30k-80k" data-en="$30K - $80K" data-es="$30K - $80K">$30K - $80K</option>
+                            <option value="80k-200k" data-en="$80K - $200K" data-es="$80K - $200K">$80K - $200K</option>
+                            <option value="200k-plus" data-en="$200K+" data-es="$200K+">$200K+</option>
+                        </select>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message"><span data-lang="en">Message</span><span data-lang="es">Mensaje</span></label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                        <span data-lang="en">Send Message</span>
+                        <span data-lang="es">Enviar Mensaje</span>
+                    </button>
+
+                    <!-- Form Status Message -->
+                    <div id="formStatus" class="form-status" style="display: none;"></div>
+                </form>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="contact-info">
+                <!-- Email Card -->
+                <div class="contact-card">
+                    <span class="card-label"><span data-lang="en">Email</span><span data-lang="es">Correo Electrónico</span></span>
+                    <h3><a href="mailto:hello@bexovar.io">hello@bexovar.io</a></h3>
+                </div>
+
+                <!-- Schedule Call Card -->
+                <div class="contact-card">
+                    <span class="card-label"><span data-lang="en">Schedule a Call</span><span data-lang="es">Agendar una Llamada</span></span>
+                    <h3><span data-lang="en">Book a Free 30-Min Discovery Call</span><span data-lang="es">Agenda una Llamada Gratuita de 30 Minutos</span></h3>
+                    <p><span data-lang="en">Let's discuss your project goals and requirements in detail.</span><span data-lang="es">Discutamos los objetivos y requisitos de tu proyecto en detalle.</span></p>
+                </div>
+
+                <!-- Response Time Card -->
+                <div class="contact-card">
+                    <span class="card-label"><span data-lang="en">Response Time</span><span data-lang="es">Tiempo de Respuesta</span></span>
+                    <h3><span data-lang="en">We Typically Respond Within 4 Hours</span><span data-lang="es">Generalmente Respondemos en 4 Horas</span></h3>
+                    <p><span data-lang="en">Business hours: Monday - Friday, 9 AM - 6 PM (ART)</span><span data-lang="es">Horas de atención: Lunes - Viernes, 9 AM - 6 PM (ART)</span></p>
+                </div>
+
+                <!-- Location Card -->
+                <div class="contact-card">
+                    <span class="card-label"><span data-lang="en">Location</span><span data-lang="es">Ubicación</span></span>
+                    <h3><span data-lang="en">Remote-First, Serving Clients Globally</span><span data-lang="es">Equipo Remoto, Sirviendo Clientes Globalmente</span></h3>
+                    <p><span data-lang="en">We work across all time zones and regions to deliver exceptional results.</span><span data-lang="es">Trabajamos en todos los husos horarios y regiones para entregar resultados excepcionales.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-header fade-in">
+        <div class="container">
+            <h2><span data-lang="en">Frequently Asked Questions</span><span data-lang="es">Preguntas Frecuentes</span></h2>
+
+            <div class="faq-container">
+                <div class="accordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item">
+                        <input type="checkbox" id="faq1">
+                        <label class="accordion-header" for="faq1">
+                            <span><span data-lang="en">How long does a typical project take?</span><span data-lang="es">¿Cuánto tiempo toma un proyecto típico?</span></span>
+                            <span class="accordion-toggle">▼</span>
+                        </label>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><span data-lang="en">Small automation projects: 2-4 weeks. Custom software: 3-6 months. We provide detailed timelines after scoping.</span><span data-lang="es">Proyectos de automatización: 2-4 semanas. Software a medida: 3-6 meses. Proporcionamos plazos detallados tras el análisis.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item">
+                        <input type="checkbox" id="faq2">
+                        <label class="accordion-header" for="faq2">
+                            <span><span data-lang="en">Do you work with companies outside LATAM?</span><span data-lang="es">¿Trabajan con empresas fuera de LATAM?</span></span>
+                            <span class="accordion-toggle">▼</span>
+                        </label>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><span data-lang="en">Yes. Remote-first company serving clients globally. Teams across multiple time zones, native English and Spanish support.</span><span data-lang="es">Sí. Empresa remota que sirve clientes globalmente. Equipos en múltiples zonas horarias, soporte nativo en inglés y español.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item">
+                        <input type="checkbox" id="faq3">
+                        <label class="accordion-header" for="faq3">
+                            <span><span data-lang="en">What technologies do you use?</span><span data-lang="es">¿Qué tecnologías utilizan?</span></span>
+                            <span class="accordion-toggle">▼</span>
+                        </label>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><span data-lang="en">Node.js, React, Python, AWS, Azure, and more. We choose based on your project needs, prioritizing scalability and security.</span><span data-lang="es">Node.js, React, Python, AWS, Azure y más. Elegimos según tus necesidades, priorizando escalabilidad y seguridad.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item">
+                        <input type="checkbox" id="faq4">
+                        <label class="accordion-header" for="faq4">
+                            <span><span data-lang="en">How do you price your services?</span><span data-lang="es">¿Cómo cotizan sus servicios?</span></span>
+                            <span class="accordion-toggle">▼</span>
+                        </label>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><span data-lang="en">Flexible models: fixed-price, time & materials, or dedicated teams. Transparent pricing, no surprises.</span><span data-lang="es">Modelos flexibles: precio fijo, tiempo y materiales, o equipos dedicados. Precios transparentes, sin sorpresas.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item">
+                        <input type="checkbox" id="faq5">
+                        <label class="accordion-header" for="faq5">
+                            <span><span data-lang="en">Do you offer ongoing support?</span><span data-lang="es">¿Ofrecen soporte continuo?</span></span>
+                            <span class="accordion-toggle">▼</span>
+                        </label>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><span data-lang="en">Yes. Maintenance, updates, and support packages available after delivery. Your solution stays optimized long-term.</span><span data-lang="es">Sí. Paquetes de mantenimiento, actualizaciones y soporte disponibles post-entrega. Tu solución se mantiene optimizada.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="accordion-item">
+                        <input type="checkbox" id="faq6">
+                        <label class="accordion-header" for="faq6">
+                            <span><span data-lang="en">What if I'm not sure what I need?</span><span data-lang="es">¿Qué pasa si no sé qué necesito?</span></span>
+                            <span class="accordion-toggle">▼</span>
+                        </label>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p><span data-lang="en">No problem. Book a free discovery call — we'll help you define the right approach.</span><span data-lang="es">Sin problema. Agenda una llamada gratuita — te ayudamos a definir el enfoque correcto.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BEXOVAR</div>
+                <p><span data-lang="en">We turn repetitive processes into competitive advantages through custom software and intelligent automation.</span><span data-lang="es">Transformamos procesos repetitivos en ventajas competitivas mediante software a medida y automatización inteligente.</span></p>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Services</span><span data-lang="es">Servicios</span></h4>
+                <a href="services.html"><span data-lang="en">Custom Software</span><span data-lang="es">Software a Medida</span></a>
+                <a href="services.html"><span data-lang="en">RPA Automation</span><span data-lang="es">Automatización RPA</span></a>
+                <a href="services.html"><span data-lang="en">Systems Integration</span><span data-lang="es">Integración de Sistemas</span></a>
+                <a href="services.html"><span data-lang="en">Consulting</span><span data-lang="es">Consultoría</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                <a href="about.html"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a>
+                <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Connect</span><span data-lang="es">Conectar</span></h4>
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:hello@bexovar.io">hello@bexovar.io</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Bexovar. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></span>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Contact form submission with Formspree
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const status = document.getElementById('formStatus');
+            const lang = localStorage.getItem('bexovar-lang') || 'en';
+
+            btn.disabled = true;
+            btn.textContent = lang === 'es' ? 'Enviando...' : 'Sending...';
+            status.style.display = 'none';
+
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (res.ok) {
+                    status.textContent = lang === 'es'
+                        ? '¡Mensaje enviado! Te responderemos en menos de 4 horas.'
+                        : 'Message sent! We\'ll get back to you within 4 hours.';
+                    status.className = 'form-status success';
+                    status.style.display = 'block';
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (err) {
+                status.textContent = lang === 'es'
+                    ? 'Error al enviar. Por favor, intenta de nuevo o escríbenos a hello@bexovar.io'
+                    : 'Failed to send. Please try again or email us at hello@bexovar.io';
+                status.className = 'form-status error';
+                status.style.display = 'block';
+            }
+
+            btn.disabled = false;
+            const enSpan = '<span data-lang="en">Send Message</span>';
+            const esSpan = '<span data-lang="es">Enviar Mensaje</span>';
+            btn.innerHTML = enSpan + esSpan;
+            if (lang === 'es') document.body.classList.add('lang-es');
+        });
+    </script>
+</body>
+</html>

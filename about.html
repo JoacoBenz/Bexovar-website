@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Bexovar — Custom Software & Process Automation</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Learn how Bexovar helps companies reduce operational costs by 30-60% with custom software, RPA, and process automation.">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Bexovar — Custom Software & Process Automation">
+    <meta property="og:description" content="Learn how Bexovar helps companies reduce operational costs by 30-60% with custom software, RPA, and process automation.">
+    <meta property="og:url" content="https://bexovar.io/about">
+    <meta property="og:site_name" content="Bexovar">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About Bexovar — Custom Software & Process Automation">
+    <meta name="twitter:description" content="Learn how Bexovar helps companies reduce operational costs by 30-60% with custom software, RPA, and process automation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Analytics: Uncomment ONE of the options below -->
+    <!-- Option 1: Google Analytics — replace GA_MEASUREMENT_ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    <!-- Option 2: Plausible Analytics (privacy-friendly) — replace yourdomain.com -->
+    <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* ─── Page-Specific Styles ─────────────────────────────── */
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Mission Section */
+        .mission-section {
+            background: linear-gradient(135deg, rgba(0, 194, 203, 0.05) 0%, transparent 100%);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+            border-radius: var(--radius);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            margin: 1.5rem auto;
+            max-width: 900px;
+        }
+
+        .mission-section p {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--light-gray);
+            line-height: 1.7;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: rgba(0, 194, 203, 0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 194, 203, 0.15);
+        }
+
+        .value-card:hover::before { transform: scaleX(1); }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .value-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--white);
+        }
+
+        .value-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Pillars Section */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            border-color: rgba(0, 194, 203, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 194, 203, 0.2);
+        }
+
+        .pillar-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .pillar-card p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* By The Numbers */
+        .stats-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .stats-inner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-item .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--highlight);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item .label {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Team Culture */
+        .team-culture {
+            background: linear-gradient(135deg, rgba(0, 194, 203, 0.05) 0%, transparent 100%);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+            border-radius: var(--radius);
+            padding: 3rem;
+            max-width: 850px;
+            margin: 2rem auto;
+        }
+
+        .team-culture h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .culture-item {
+            text-align: center;
+        }
+
+        .culture-item strong {
+            display: block;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .culture-item p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Global Reach */
+        .reach-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 194, 203, 0.1);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .reach-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .reach-card p {
+            color: var(--light-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .regions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .region {
+            background: rgba(0, 194, 203, 0.05);
+            border: 1px solid rgba(0, 194, 203, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .region h4 {
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .region p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-final {
+            background: linear-gradient(135deg, rgba(0, 194, 203, 0.1) 0%, rgba(0, 194, 203, 0.05) 100%);
+            border: 2px solid rgba(0, 194, 203, 0.2);
+            border-radius: var(--radius);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 3rem auto;
+        }
+
+        .cta-final h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cta-final p {
+            color: var(--light-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .culture-grid { grid-template-columns: 1fr; }
+            .regions { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .mission-section { padding: 2rem 1.5rem; }
+            .mission-section p { font-size: 1.1rem; }
+            .pillar-card, .value-card { padding: 1.8rem; }
+            .pillar-number { font-size: 2.2rem; }
+            .stat-item .number { font-size: 2rem; }
+            .cta-final { padding: 2rem 1.5rem; }
+            .cta-final h2 { font-size: 1.5rem; }
+            .team-culture { padding: 2rem 1.5rem; }
+            .regions { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">BEXOVAR</a>
+        <div class="nav-links" id="navLinks">
+            <a href="services.html"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+            <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="about.html" class="active"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="contact.html" class="nav-cta"><span data-lang="en">Get Started</span><span data-lang="es">Empezar</span></a>
+        </div>
+        <button class="mobile-menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <h1 data-lang="en" class="fade-in">About Bexovar</h1>
+        <h1 data-lang="es" class="fade-in">Acerca de Bexovar</h1>
+        <p data-lang="en" class="fade-in">We're obsessed with one thing: turning chaotic processes into elegant, custom software solutions that actually save money.</p>
+        <p data-lang="es" class="fade-in">Estamos obsesionados con una cosa: convertir procesos caóticos en soluciones de software personalizado que realmente ahorran dinero.</p>
+    </section>
+
+    <!-- MISSION SECTION -->
+    <section>
+        <div class="container">
+            <div class="mission-section fade-in">
+                <p data-lang="en">"We believe every company deserves software that fits how they actually work, not the other way around."</p>
+                <p data-lang="es">"Creemos que cada empresa merece software que se ajuste a cómo realmente trabaja, no al revés."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY BEXOVAR -->
+    <section>
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><span data-lang="en">Why Bexovar</span><span data-lang="es">Por Qué Bexovar</span></span>
+                <h2 data-lang="en">Three Pillars That Set Us Apart</h2>
+                <h2 data-lang="es">Tres Pilares Que Nos Destacan</h2>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card fade-in">
+                    <div class="pillar-number">01</div>
+                    <h3 data-lang="en">100% Custom Approach</h3>
+                    <h3 data-lang="es">Enfoque 100% Personalizado</h3>
+                    <p data-lang="en">No templates. No off-the-shelf solutions. We build exactly what your business needs, nothing more, nothing less.</p>
+                    <p data-lang="es">Sin plantillas. Sin soluciones genéricas. Construimos exactamente lo que tu negocio necesita, nada más, nada menos.</p>
+                </div>
+
+                <div class="pillar-card fade-in">
+                    <div class="pillar-number">02</div>
+                    <h3 data-lang="en">Measurable ROI from Day 1</h3>
+                    <h3 data-lang="es">ROI Medible desde el Día 1</h3>
+                    <p data-lang="en">We track what matters: cost savings, time recovered, and operational efficiency. Real numbers, real impact.</p>
+                    <p data-lang="es">Rastreamos lo que importa: ahorros de costos, tiempo recuperado y eficiencia operativa. Números reales, impacto real.</p>
+                </div>
+
+                <div class="pillar-card fade-in">
+                    <div class="pillar-number">03</div>
+                    <h3 data-lang="en">Bilingual Global Support</h3>
+                    <h3 data-lang="es">Soporte Global Bilingüe</h3>
+                    <p data-lang="en">We speak your language (literally). Native English and Spanish support across LATAM, USA, and Spain.</p>
+                    <p data-lang="es">Hablamos tu idioma (literalmente). Soporte nativo en inglés y español en toda LATAM, USA y España.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR VALUES -->
+    <section style="background: linear-gradient(180deg, transparent 0%, rgba(0, 194, 203, 0.03) 100%);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><span data-lang="en">Our Culture</span><span data-lang="es">Nuestra Cultura</span></span>
+                <h2 data-lang="en">Values That Drive Everything</h2>
+                <h2 data-lang="es">Valores Que Lo Impulsan Todo</h2>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">🎯</div>
+                    <h3 data-lang="en">Transparency</h3>
+                    <h3 data-lang="es">Transparencia</h3>
+                    <p data-lang="en">No hidden fees. Clear timelines. You always know where your project stands.</p>
+                    <p data-lang="es">Sin costos ocultos. Plazos claros. Siempre sabes en qué estado está tu proyecto.</p>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">📈</div>
+                    <h3 data-lang="en">Results-Driven</h3>
+                    <h3 data-lang="es">Orientado a Resultados</h3>
+                    <p data-lang="en">Every decision focused on your bottom line. We succeed when you succeed.</p>
+                    <p data-lang="es">Cada decisión enfocada en tus resultados. Nosotros ganamos cuando tú ganas.</p>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">🤝</div>
+                    <h3 data-lang="en">Partnership Mindset</h3>
+                    <h3 data-lang="es">Mentalidad de Asociación</h3>
+                    <p data-lang="en">Not a vendor, a partner. We invest in understanding your business deeply.</p>
+                    <p data-lang="es">No somos un proveedor, somos un socio. Invertimos en entender tu negocio.</p>
+                </div>
+
+                <div class="value-card fade-in">
+                    <div class="value-icon">⚡</div>
+                    <h3 data-lang="en">Continuous Innovation</h3>
+                    <h3 data-lang="es">Innovación Continua</h3>
+                    <p data-lang="en">We stay ahead of trends to keep your systems modern and competitive.</p>
+                    <p data-lang="es">Nos adelantamos a las tendencias para mantener tus sistemas modernos y competitivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BY THE NUMBERS -->
+    <section>
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><span data-lang="en">By The Numbers</span><span data-lang="es">En Números</span></span>
+                <h2 data-lang="en">Proven Impact, Real Partnerships</h2>
+                <h2 data-lang="es">Impacto Probado, Asociaciones Reales</h2>
+            </div>
+
+            <div class="stats-container fade-in">
+                <div class="stats-inner">
+                    <div class="stat-item">
+                        <div class="number">50+</div>
+                        <div class="label"><span data-lang="en">Projects Delivered</span><span data-lang="es">Proyectos Entregados</span></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">30-60%</div>
+                        <div class="label"><span data-lang="en">Cost Reduction Achieved</span><span data-lang="es">Reducción de Costos</span></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">95%</div>
+                        <div class="label"><span data-lang="en">Client Retention</span><span data-lang="es">Retención de Clientes</span></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">8+</div>
+                        <div class="label"><span data-lang="en">Countries Served</span><span data-lang="es">Países Servidos</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL REACH -->
+    <section style="background: linear-gradient(180deg, transparent 0%, rgba(0, 194, 203, 0.03) 100%);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><span data-lang="en">Global Reach</span><span data-lang="es">Alcance Global</span></span>
+                <h2 data-lang="en">Anywhere, Anytime, Any Language</h2>
+                <h2 data-lang="es">En Cualquier Lugar, En Cualquier Momento, En Cualquier Idioma</h2>
+            </div>
+
+            <div class="reach-card fade-in">
+                <h3 data-lang="en">Serving LATAM, USA, and Spain</h3>
+                <h3 data-lang="es">Sirviendo a LATAM, USA y España</h3>
+                <p data-lang="en">Distributed teams across the Americas and Europe. Native English and Spanish support. Your project moves 24/5.</p>
+                <p data-lang="es">Equipos distribuidos en las Américas y Europa. Soporte nativo en inglés y español. Tu proyecto avanza 24/5.</p>
+
+                <div class="regions">
+                    <div class="region fade-in">
+                        <h4>🌎 <span data-lang="en">LATAM</span><span data-lang="es">LATAM</span></h4>
+                        <p data-lang="en">Mexico, Colombia, Argentina, Chile</p>
+                        <p data-lang="es">México, Colombia, Argentina, Chile</p>
+                    </div>
+                    <div class="region fade-in">
+                        <h4>🇺🇸 <span data-lang="en">USA</span><span data-lang="es">USA</span></h4>
+                        <p data-lang="en">East Coast, West Coast, Midwest</p>
+                        <p data-lang="es">Costa Este, Oeste, Medio Oeste</p>
+                    </div>
+                    <div class="region fade-in">
+                        <h4>🇪🇸 <span data-lang="en">Spain</span><span data-lang="es">España</span></h4>
+                        <p data-lang="en">Madrid, Barcelona, Valencia</p>
+                        <p data-lang="es">Madrid, Barcelona, Valencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM CULTURE -->
+    <section>
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><span data-lang="en">How We Work</span><span data-lang="es">Cómo Trabajamos</span></span>
+                <h2 data-lang="en">Remote-First, Agile, Direct</h2>
+                <h2 data-lang="es">Remoto Primero, Ágil, Directo</h2>
+            </div>
+
+            <div class="team-culture fade-in">
+                <h3 data-lang="en">Our Team Culture</h3>
+                <h3 data-lang="es">Nuestra Cultura de Equipo</h3>
+                <p data-lang="en" style="text-align: center; color: var(--light-gray); margin-bottom: 1.5rem;">We're not your typical vendor. We're distributed, we're flexible, and we work the way modern companies should.</p>
+                <p data-lang="es" style="text-align: center; color: var(--light-gray); margin-bottom: 1.5rem;">No somos tu proveedor típico. Somos distribuidos, flexibles y trabajamos como deberían hacerlo las empresas modernas.</p>
+
+                <div class="culture-grid">
+                    <div class="culture-item fade-in">
+                        <strong data-lang="en">🌍 Remote-First</strong>
+                        <strong data-lang="es">🌍 Remoto Primero</strong>
+                        <p data-lang="en">We work from anywhere, so you get the best talent regardless of location.</p>
+                        <p data-lang="es">Trabajamos desde cualquier lugar, así obtienes el mejor talento independientemente de la ubicación.</p>
+                    </div>
+                    <div class="culture-item fade-in">
+                        <strong data-lang="en">⚙️ Agile Methodology</strong>
+                        <strong data-lang="es">⚙️ Metodología Ágil</strong>
+                        <p data-lang="en">Sprint cycles, regular demos, and feedback loops keep projects on track and adaptable.</p>
+                        <p data-lang="es">Ciclos de sprint, demostraciones regulares y ciclos de retroalimentación mantienen los proyectos en marcha.</p>
+                    </div>
+                    <div class="culture-item fade-in">
+                        <strong data-lang="en">💬 Direct Communication</strong>
+                        <strong data-lang="es">💬 Comunicación Directa</strong>
+                        <p data-lang="en">No middlemen. You talk directly with developers and architects who actually build your solution.</p>
+                        <p data-lang="es">Sin intermediarios. Hablas directamente con desarrolladores y arquitectos que construyen tu solución.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section>
+        <div class="container">
+            <div class="cta-final fade-in">
+                <h2 data-lang="en">Ready to Work With Us?</h2>
+                <h2 data-lang="es">¿Listo Para Trabajar Con Nosotros?</h2>
+                <p data-lang="en">Let's talk about how custom software can transform your business.</p>
+                <p data-lang="es">Hablemos sobre cómo el software personalizado puede transformar tu negocio.</p>
+                <a href="/#contact" class="btn-primary">
+                    <span data-lang="en">Start a Conversation</span>
+                    <span data-lang="es">Iniciar Conversación</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BEXOVAR</div>
+                <p><span data-lang="en">We turn repetitive processes into competitive advantages through custom software and intelligent automation.</span><span data-lang="es">Transformamos procesos repetitivos en ventajas competitivas mediante software a medida y automatización inteligente.</span></p>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Services</span><span data-lang="es">Servicios</span></h4>
+                <a href="services.html"><span data-lang="en">Custom Software</span><span data-lang="es">Software a Medida</span></a>
+                <a href="services.html"><span data-lang="en">RPA Automation</span><span data-lang="es">Automatización RPA</span></a>
+                <a href="services.html"><span data-lang="en">Systems Integration</span><span data-lang="es">Integración de Sistemas</span></a>
+                <a href="services.html"><span data-lang="en">Consulting</span><span data-lang="es">Consultoría</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                <a href="about.html"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a>
+                <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Connect</span><span data-lang="es">Conectar</span></h4>
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:hello@bexovar.io">hello@bexovar.io</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Bexovar. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></span>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function setLang(lang) {
+            if (lang === 'es') {
+                document.body.classList.add('lang-es');
+                localStorage.setItem('lang', 'es');
+            } else {
+                document.body.classList.remove('lang-es');
+                localStorage.setItem('lang', 'en');
+            }
+            updateActiveLangBtn(lang);
+        }
+
+        function updateActiveLangBtn(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.lang-btn')[lang === 'es' ? 1 : 0].classList.add('active');
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Load saved language preference
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLang(savedLang);
+
+        // Mark "About" as active in nav
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.href.includes('/about.html')) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bexovar - Custom Software & Process Automation</title>
+    <meta name="description" content="Bexovar builds custom software and intelligent automation to reduce operational costs by 30-60%. RPA, systems integration, and process consulting.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bexovar - Custom Software & Process Automation">
+    <meta property="og:description" content="Reduce operational costs by 30-60% with custom software, RPA, and intelligent automation.">
+    <meta property="og:url" content="https://bexovar.io/">
+    <meta property="og:site_name" content="Bexovar">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Bexovar - Custom Software & Process Automation">
+    <meta name="twitter:description" content="Reduce operational costs by 30-60% with custom software, RPA, and intelligent automation.">
+    <!-- JSON-LD Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bexovar",
+      "url": "https://bexovar.io",
+      "email": "hello@bexovar.io",
+      "description": "Custom software development and process automation company helping businesses reduce operational costs by 30-60%.",
+      "sameAs": [],
+      "serviceType": ["Custom Software Development", "Robotic Process Automation", "Systems Integration", "Process Consulting"]
+    }
+    </script>
+    <!-- Analytics: Uncomment ONE of the options below -->
+    <!-- Option 1: Google Analytics — replace GA_MEASUREMENT_ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    <!-- Option 2: Plausible Analytics (privacy-friendly) — replace yourdomain.com -->
+    <!-- <script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page-specific animations and styles */
+        @keyframes float-orbit {
+            0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; box-shadow: 0 0 20px rgba(0, 197, 203, 0.4); }
+            50% { opacity: 1; box-shadow: 0 0 40px rgba(0, 229, 208, 0.8); }
+        }
+
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Orbital graphic styling */
+        .orbit-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+        }
+
+        .orbit-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(0, 197, 203, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit-circle-1 {
+            width: 200px;
+            height: 200px;
+            animation: float-orbit 8s linear infinite;
+        }
+
+        .orbit-circle-2 {
+            width: 280px;
+            height: 280px;
+            animation: float-orbit 12s linear infinite reverse;
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #00E5D0, #00C2CB);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .orbit-dot-1 {
+            width: 10px;
+            height: 10px;
+            animation: float-orbit 8s linear infinite;
+            animation-delay: 0s;
+        }
+
+        .orbit-dot-2 {
+            width: 14px;
+            height: 14px;
+            animation: float-orbit 12s linear infinite reverse;
+            animation-delay: 1s;
+        }
+
+        .orbit-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #00E5D0, #00C2CB);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(0, 197, 203, 0.6);
+            z-index: 10;
+        }
+
+        /* Hero section styles */
+        .hero-content {
+            animation: slide-in-left 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #00E5D0 0%, #00C2CB 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtext {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-graphic {
+            animation: slide-in-right 1s ease-out;
+        }
+
+        /* Stats bar styling */
+        .stats-bar {
+            background: linear-gradient(135deg, rgba(0, 197, 203, 0.1), rgba(0, 229, 208, 0.1));
+            border: 1px solid rgba(0, 197, 203, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+        .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00E5D0, #00C2CB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Service cards */
+        .service-card {
+            background: linear-gradient(135deg, rgba(0, 197, 203, 0.1), rgba(0, 229, 208, 0.05));
+            border: 1px solid rgba(0, 197, 203, 0.3);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 208, 0.2), transparent);
+            transition: left 0.5s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 229, 208, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 197, 203, 0.15);
+        }
+
+        .service-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00E5D0, #00C2CB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* How it works section */
+        .process-step {
+            position: relative;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+
+        .process-step:nth-child(1) { animation-delay: 0.1s; }
+        .process-step:nth-child(2) { animation-delay: 0.2s; }
+        .process-step:nth-child(3) { animation-delay: 0.3s; }
+        .process-step:nth-child(4) { animation-delay: 0.4s; }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00E5D0, #00C2CB);
+            border-radius: 50%;
+            font-weight: 700;
+            color: #0D1B2A;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        /* Testimonial cards */
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(0, 197, 203, 0.1), rgba(0, 229, 208, 0.05));
+            border: 1px solid rgba(0, 197, 203, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            animation: fadeIn 0.8s ease-out backwards;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 197, 203, 0.15);
+            border-color: rgba(0, 229, 208, 0.6);
+        }
+
+        .quote-mark {
+            font-size: 2.5rem;
+            color: rgba(0, 229, 208, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00E5D0, #00C2CB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #0D1B2A;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            margin: 0;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-role {
+            color: rgba(0, 229, 208, 0.8);
+            font-size: 0.85rem;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 197, 203, 0.15), rgba(0, 229, 208, 0.1));
+            border: 2px solid rgba(0, 229, 208, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #00E5D0, #00C2CB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .cta-email {
+            font-size: 1.3rem;
+            color: #00E5D0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-email:hover {
+            color: #00C2CB;
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+
+        /* Responsive grid for stats and services */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-bar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .orbit-container {
+                display: none;
+            }
+
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">BEXOVAR</a>
+        <div class="nav-links" id="navLinks">
+            <a href="services.html"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+            <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+            <a href="about.html"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+            <a href="blog.html"><span data-lang="en">Blog</span><span data-lang="es">Blog</span></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')">EN</button>
+                <button class="lang-btn" onclick="setLang('es')">ES</button>
+            </div>
+            <a href="contact.html" class="nav-cta"><span data-lang="en">Get Started</span><span data-lang="es">Empezar</span></a>
+        </div>
+        <button class="mobile-menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="page-hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-tagline">
+                    <span data-lang="en">Automation Solutions for Enterprise</span>
+                    <span data-lang="es">Soluciones de Automatización para Empresas</span>
+                </div>
+                <h1>
+                    <span data-lang="en">Stop wasting time on repetitive processes</span>
+                    <span data-lang="es">Deja de perder tiempo en procesos repetitivos</span>
+                </h1>
+                <p class="subtext">
+                    <span data-lang="en">Reduce operational costs by 30-60% with custom software and intelligent automation.</span>
+                    <span data-lang="es">Reduce costos operativos un 30-60% con software a medida y automatización inteligente.</span>
+                </p>
+                <div class="hero-ctas">
+                    <a href="https://calendly.com" class="btn btn-primary">
+                        <span data-lang="en">Book Free Audit</span>
+                        <span data-lang="es">Reservar Auditoría Gratis</span>
+                    </a>
+                    <a href="#services" class="btn btn-outline">
+                        <span data-lang="en">See Services</span>
+                        <span data-lang="es">Ver Servicios</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-graphic">
+                <div class="orbit-container">
+                    <div class="orbit-circle orbit-circle-1">
+                        <div class="orbit-dot orbit-dot-1"></div>
+                    </div>
+                    <div class="orbit-circle orbit-circle-2">
+                        <div class="orbit-dot orbit-dot-2"></div>
+                    </div>
+                    <div class="orbit-center"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">60-70%</div>
+                    <div class="stat-label">
+                        <span data-lang="en">Time Spent on Repetitive Tasks</span>
+                        <span data-lang="es">Tiempo Dedicado a Tareas Repetitivas</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30-60%</div>
+                    <div class="stat-label">
+                        <span data-lang="en">Cost Reduction</span>
+                        <span data-lang="es">Reducción de Costos</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">
+                        <span data-lang="en">Automation Coverage</span>
+                        <span data-lang="es">Cobertura de Automatización</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$4.5T</div>
+                    <div class="stat-label">
+                        <span data-lang="en">Global Automation Market</span>
+                        <span data-lang="es">Mercado Global de Automatización</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Our Services</span>
+                    <span data-lang="es">Nuestros Servicios</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Tailored solutions designed to transform your business operations</span>
+                    <span data-lang="es">Soluciones personalizadas diseñadas para transformar tus operaciones comerciales</span>
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-number">01</div>
+                    <h3>
+                        <span data-lang="en">Custom Software Development</span>
+                        <span data-lang="es">Desarrollo de Software Personalizado</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Purpose-built applications designed to address your specific business challenges and scale with your organization.</span>
+                        <span data-lang="es">Aplicaciones diseñadas específicamente para abordar tus desafíos comerciales únicos y escalar con tu organización.</span>
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">02</div>
+                    <h3>
+                        <span data-lang="en">Robotic Process Automation</span>
+                        <span data-lang="es">Automatización de Procesos Robóticos</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Intelligent bots that handle repetitive tasks 24/7, freeing your team to focus on strategic work and business growth.</span>
+                        <span data-lang="es">Bots inteligentes que manejan tareas repetitivas 24/7, liberando a tu equipo para enfocarse en trabajo estratégico y crecimiento.</span>
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">03</div>
+                    <h3>
+                        <span data-lang="en">Systems Integration</span>
+                        <span data-lang="es">Integración de Sistemas</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Seamless connection of your existing tools and platforms, creating a unified ecosystem that improves data flow and operational efficiency.</span>
+                        <span data-lang="es">Conexión perfecta de tus herramientas y plataformas existentes, creando un ecosistema unificado que mejora el flujo de datos y la eficiencia operacional.</span>
+                    </p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-number">04</div>
+                    <h3>
+                        <span data-lang="en">Process Consulting & Optimization</span>
+                        <span data-lang="es">Consultoría y Optimización de Procesos</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Expert analysis and recommendations to identify automation opportunities and streamline your workflows for maximum impact.</span>
+                        <span data-lang="es">Análisis experto y recomendaciones para identificar oportunidades de automatización y optimizar tus flujos de trabajo.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">How It Works</span>
+                    <span data-lang="es">Cómo Funciona</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Our proven methodology ensures success at every stage</span>
+                    <span data-lang="es">Nuestra metodología probada garantiza el éxito en cada etapa</span>
+                </p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>
+                        <span data-lang="en">Discovery & Assessment</span>
+                        <span data-lang="es">Descubrimiento y Evaluación</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">We analyze your current workflows, identify bottlenecks, and discover automation opportunities tailored to your business.</span>
+                        <span data-lang="es">Analizamos tus flujos de trabajo actuales, identificamos cuellos de botella y descubrimos oportunidades de automatización adaptadas a tu negocio.</span>
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>
+                        <span data-lang="en">ROI Proposal & Planning</span>
+                        <span data-lang="es">Propuesta ROI y Planificación</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">We present a comprehensive roadmap with clear timelines, deliverables, and measurable ROI projections.</span>
+                        <span data-lang="es">Presentamos una hoja de ruta integral con cronogramas claros, entregables y proyecciones de ROI medibles.</span>
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>
+                        <span data-lang="en">Build & Iterate</span>
+                        <span data-lang="es">Construcción e Iteración</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Our expert team develops your solution with continuous feedback loops, ensuring it meets your exact specifications.</span>
+                        <span data-lang="es">Nuestro equipo experto desarrolla tu solución con bucles de retroalimentación continua, asegurando que cumple con tus especificaciones exactas.</span>
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>
+                        <span data-lang="en">Launch & Ongoing Support</span>
+                        <span data-lang="es">Lanzamiento y Soporte Continuo</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">We deploy your solution with comprehensive training and provide 24/7 support to ensure seamless operations.</span>
+                        <span data-lang="es">Desplegamos tu solución con capacitación integral y proporcionamos soporte 24/7 para garantizar operaciones sin problemas.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof - Testimonials -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">What Our Clients Say</span>
+                    <span data-lang="es">Lo Que Dicen Nuestros Clientes</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Trusted by enterprises across industries worldwide</span>
+                    <span data-lang="es">Confiado por empresas en todas las industrias en todo el mundo</span>
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">
+                        <span data-lang="en">Bexovar's automation cut our invoice processing from 3 days to 4 hours. The ROI was visible within the first month.</span>
+                        <span data-lang="es">La automatización de Bexovar redujo nuestro procesamiento de facturas de 3 días a 4 horas. El ROI fue visible en el primer mes.</span>
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JK</div>
+                        <div class="author-info">
+                            <h4>
+                                <span data-lang="en">James Kim</span>
+                                <span data-lang="es">James Kim</span>
+                            </h4>
+                            <div class="author-role">
+                                <span data-lang="en">VP Operations, Fortune 500 Tech</span>
+                                <span data-lang="es">VP Operaciones, Fortune 500 Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">
+                        <span data-lang="en">They integrated 5 disconnected systems in 8 weeks. Our team finally has a single source of truth.</span>
+                        <span data-lang="es">Integraron 5 sistemas desconectados en 8 semanas. Nuestro equipo finalmente tiene una única fuente de verdad.</span>
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>
+                                <span data-lang="en">Sarah Martinez</span>
+                                <span data-lang="es">Sarah Martinez</span>
+                            </h4>
+                            <div class="author-role">
+                                <span data-lang="en">Director of Digital Transformation, Financial Services</span>
+                                <span data-lang="es">Directora de Transformación Digital, Servicios Financieros</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">
+                        <span data-lang="en">From initial consultation to deployment, their process was seamless. Our custom platform handles 10x the volume now.</span>
+                        <span data-lang="es">Desde la consulta inicial hasta el despliegue, su proceso fue impecable. Nuestra plataforma maneja 10x el volumen ahora.</span>
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RP</div>
+                        <div class="author-info">
+                            <h4>
+                                <span data-lang="en">Roberto Pena</span>
+                                <span data-lang="es">Roberto Peña</span>
+                            </h4>
+                            <div class="author-role">
+                                <span data-lang="en">Chief Operations Officer, Manufacturing Leader</span>
+                                <span data-lang="es">Director General de Operaciones, Líder de Manufactura</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-section fade-in">
+                <h2>
+                    <span data-lang="en">Ready to Automate Your Future?</span>
+                    <span data-lang="es">¿Listo para Automatizar Tu Futuro?</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Get a free consultation and discover how much you could save with automation.</span>
+                    <span data-lang="es">Obtén una consulta gratuita y descubre cuánto podrías ahorrar con automatización.</span>
+                </p>
+                <a href="mailto:hello@bexovar.io" class="cta-email">hello@bexovar.io</a>
+                <div style="margin-top: 2rem;">
+                    <a href="https://calendly.com" class="btn btn-primary">
+                        <span data-lang="en">Book Free Audit</span>
+                        <span data-lang="es">Reservar Auditoría Gratis</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">BEXOVAR</div>
+                <p><span data-lang="en">We turn repetitive processes into competitive advantages through custom software and intelligent automation.</span><span data-lang="es">Transformamos procesos repetitivos en ventajas competitivas mediante software a medida y automatización inteligente.</span></p>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Services</span><span data-lang="es">Servicios</span></h4>
+                <a href="services.html"><span data-lang="en">Custom Software</span><span data-lang="es">Software a Medida</span></a>
+                <a href="services.html"><span data-lang="en">RPA Automation</span><span data-lang="es">Automatización RPA</span></a>
+                <a href="services.html"><span data-lang="en">Systems Integration</span><span data-lang="es">Integración de Sistemas</span></a>
+                <a href="services.html"><span data-lang="en">Consulting</span><span data-lang="es">Consultoría</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Company</span><span data-lang="es">Empresa</span></h4>
+                <a href="about.html"><span data-lang="en">About Us</span><span data-lang="es">Nosotros</span></a>
+                <a href="case-studies.html"><span data-lang="en">Case Studies</span><span data-lang="es">Casos de Éxito</span></a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a>
+            </div>
+            <div class="footer-col">
+                <h4><span data-lang="en">Connect</span><span data-lang="es">Conectar</span></h4>
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:hello@bexovar.io">hello@bexovar.io</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Bexovar. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></span>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/company/bexovar" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://github.com/bexovar" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
