@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 export function VideoEmbed({
   title,
   poster,
@@ -14,6 +19,7 @@ export function VideoEmbed({
   onPlay?: () => void;
 }) {
   const [playing, setPlaying] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const hasSrc = Boolean(src);
 
   if (playing && src) {
@@ -24,7 +30,7 @@ export function VideoEmbed({
           src={src}
           poster={poster}
           controls
-          autoPlay
+          autoPlay={!reducedMotion}
           playsInline
           className="h-full w-full"
         />
@@ -46,6 +52,7 @@ export function VideoEmbed({
         disabled={!hasSrc}
         onClick={() => {
           if (!hasSrc) return;
+          setReducedMotion(prefersReducedMotion());
           setPlaying(true);
           onPlay?.();
         }}
