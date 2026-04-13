@@ -1,65 +1,55 @@
-import Image from "next/image";
+import { Container } from "@/components/layout/container";
+import { SectionHeader } from "@/components/sections/section-header";
+import { CTASection } from "@/components/sections/cta-section";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { OrbitalGraphic } from "@/components/graphics/orbital-graphic";
+import { siteConfig } from "@/lib/site-config";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <section className="py-20 md:py-28">
+        <Container className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-eyebrow uppercase text-accent mb-4">Foundation preview</p>
+            <h1 className="text-display text-ink">
+              Bexovar site foundation
+            </h1>
+            <p className="mt-6 text-lg text-ink-muted max-w-xl">
+              This page is a placeholder exercising the design system and shared components.
+              Real homepage content lands in Plan 2.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href={siteConfig.cta.primary.href} size="lg">Book a call</Button>
+              <Button href="#" variant="secondary" size="lg">Secondary action</Button>
+            </div>
+          </div>
+          <OrbitalGraphic />
+        </Container>
+      </section>
+
+      <section className="py-20 md:py-28 bg-bg-alt">
+        <Container>
+          <SectionHeader
+            eyebrow="Primitives"
+            title="Cards render like this"
+            subtitle="Verifying the Card primitive with hover elevation."
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <Card><h3 className="text-h3">Custom Software</h3><p className="mt-2 text-ink-muted">Placeholder.</p></Card>
+            <Card><h3 className="text-h3">RPA & Agents</h3><p className="mt-2 text-ink-muted">Placeholder.</p></Card>
+            <Card><h3 className="text-h3">Integrations</h3><p className="mt-2 text-ink-muted">Placeholder.</p></Card>
+          </div>
+        </Container>
+      </section>
+
+      <CTASection
+        heading="Ready to see what this looks like on your workflow?"
+        subtitle="30-min call. We'll show you a live demo built around your actual process."
+        primary={siteConfig.cta.primary}
+        secondary={siteConfig.cta.secondary}
+      />
+    </>
   );
 }
