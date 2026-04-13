@@ -11,13 +11,15 @@ export function CaseStudiesBrowser({
   caseStudies,
   industries,
   serviceSlugs,
-  serviceLabel,
+  serviceLabels,
 }: {
   caseStudies: readonly CaseStudy[];
   industries: readonly Industry[];
   serviceSlugs: readonly ServiceSlug[];
-  serviceLabel: (slug: ServiceSlug) => string;
+  serviceLabels: Record<string, string>;
 }) {
+  const serviceLabel = (slug: ServiceSlug) => serviceLabels[slug] ?? slug;
+
   const [active, setActive] = useState<ChipValue>("All");
 
   // Build the flat chip row: industries first, then service labels.
@@ -32,7 +34,8 @@ export function CaseStudiesBrowser({
     for (const ind of industries) map.set(ind, ind);
     for (const s of serviceSlugs) map.set(serviceLabel(s), s);
     return map;
-  }, [industries, serviceSlugs, serviceLabel]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [industries, serviceSlugs, serviceLabels]);
 
   const valueToLabel = useMemo(() => {
     const map = new Map<ChipValue, string>();
@@ -40,7 +43,8 @@ export function CaseStudiesBrowser({
     for (const s of serviceSlugs) map.set(s, serviceLabel(s));
     map.set("All", "All");
     return map;
-  }, [industries, serviceSlugs, serviceLabel]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [industries, serviceSlugs, serviceLabels]);
 
   const activeLabel = valueToLabel.get(active) ?? "All";
 

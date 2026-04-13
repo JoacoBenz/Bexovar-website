@@ -36,7 +36,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabel={(s) => s}
+        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
       />,
     );
     expect(screen.getByText("summary for a")).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabel={(s) => s}
+        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Finance" }));
@@ -65,7 +65,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabel={(s) => s}
+        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "custom-software" }));
@@ -80,7 +80,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies.filter((s) => s.industry === "Finance")}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabel={(s) => s}
+        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Logistics" }));
