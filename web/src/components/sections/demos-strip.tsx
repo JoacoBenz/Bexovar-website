@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "./section-header";
-import type { DemoPlaceholder } from "@/content/home";
+import { DemoCard } from "@/components/marketing/demo-card";
+import type { Demo } from "@/content/demos";
 
-export function DemosStrip({ demos }: { demos: readonly DemoPlaceholder[] }) {
+export function DemosStrip({ demos }: { demos: readonly Demo[] }) {
   return (
     <section className="py-20 md:py-28">
       <Container>
@@ -14,18 +15,7 @@ export function DemosStrip({ demos }: { demos: readonly DemoPlaceholder[] }) {
         />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {demos.map((d) => (
-            <div
-              key={d.title}
-              className="group rounded-lg border border-border bg-white overflow-hidden shadow-sm transition-shadow hover:shadow-lg"
-            >
-              <div className="aspect-video bg-bg-alt flex items-center justify-center text-ink-subtle">
-                <span aria-hidden="true" className="mr-2">▶</span>
-                <span className="text-sm"><span>{d.title}</span>{" · "}<span>{d.duration}</span></span>
-              </div>
-              <div className="p-5">
-                <p className="text-sm text-ink-muted">{d.summary}</p>
-              </div>
-            </div>
+            <DemoCard key={d.slug} demo={d} />
           ))}
         </div>
         <p className="mt-8 text-sm">
