@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { Container } from "./container";
 import { cn } from "@/lib/cn";
+import { LocaleSwitcher } from "./locale-switcher";
 
 export function NavBar() {
   const [open, setOpen] = useState(false);
@@ -39,7 +40,8 @@ export function NavBar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <LocaleSwitcher />
           <Button href={siteConfig.cta.primary.href} size="sm">
             {tCta("bookCall")}
           </Button>
@@ -74,6 +76,7 @@ export function NavBar() {
               {link.label}
             </Link>
           ))}
+          <LocaleSwitcher />
           <Button href={siteConfig.cta.primary.href} size="md" className="w-full">
             {tCta("bookCall")}
           </Button>

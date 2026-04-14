@@ -8,6 +8,8 @@ vi.mock("@/i18n/navigation", () => ({
   Link: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => (
     <a href={href} {...props}>{children}</a>
   ),
+  useRouter: () => ({ replace: vi.fn() }),
+  usePathname: () => "/",
 }));
 
 import { NavBar } from "./nav-bar";
