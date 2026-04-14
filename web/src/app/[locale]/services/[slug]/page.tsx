@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
 import { SectionHeader } from "@/components/sections/section-header";
 import { getContent } from "@/content/get-content";
-import { isLocale, locales } from "@/i18n/routing";
+import { isLocale, locales, defaultLocale } from "@/i18n/routing";
 import { serviceSlugs } from "@/content/en/services";
 import { siteConfig } from "@/lib/site-config";
 
@@ -28,7 +28,12 @@ export async function generateMetadata({
   const { getService } = await getContent(locale);
   const s = getService(slug);
   if (!s) return {};
-  return { title: s.title, description: s.tagline };
+  const origin = "https://bexovar.io";
+  const pathBase = `/services/${slug}`;
+  const languages = Object.fromEntries(
+    locales.map((l) => [l, l === defaultLocale ? `${origin}${pathBase}` : `${origin}/${l}${pathBase}`]),
+  );
+  return { title: s.title, description: s.tagline, alternates: { languages, canonical: languages[locale] } };
 }
 
 export default async function ServiceDetailPage({

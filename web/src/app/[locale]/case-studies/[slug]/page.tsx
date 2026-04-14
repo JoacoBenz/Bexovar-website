@@ -7,7 +7,7 @@ import { PullQuote } from "@/components/marketing/pull-quote";
 import { DemoCard } from "@/components/marketing/demo-card";
 import { CTASection } from "@/components/sections/cta-section";
 import { getContent } from "@/content/get-content";
-import { isLocale, locales } from "@/i18n/routing";
+import { isLocale, locales, defaultLocale } from "@/i18n/routing";
 import { caseStudies } from "@/content/en/case-studies";
 import { siteConfig } from "@/lib/site-config";
 import { BilingualBanner } from "@/components/layout/bilingual-banner";
@@ -29,9 +29,15 @@ export async function generateMetadata({
   const { getCaseStudyBySlug } = await getContent(locale);
   const cs = getCaseStudyBySlug(slug);
   if (!cs) return { title: "Case study not found — Bexovar" };
+  const origin = "https://bexovar.io";
+  const pathBase = `/case-studies/${slug}`;
+  const languages = Object.fromEntries(
+    locales.map((l) => [l, l === defaultLocale ? `${origin}${pathBase}` : `${origin}/${l}${pathBase}`]),
+  );
   return {
     title: `${cs.industry} · ${cs.headlineMetric.value} — Case Study`,
     description: cs.headlineOutcome,
+    alternates: { languages, canonical: languages[locale] },
   };
 }
 
