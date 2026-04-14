@@ -1,3 +1,34 @@
 {
-  "stub": "replaced in task 5"
+  "nav": {
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "demos": "Demos",
+    "howWeWork": "How we work",
+    "about": "About",
+    "primaryLabel": "Primary",
+    "toggleMenu": "Toggle menu",
+    "languageGroupLabel": "Language"
+  },
+  "cta": {
+    "bookCall": "Book a call",
+    "requestProposal": "Request a proposal",
+    "contactUs": "Contact us",
+    "seeDemos": "See demos"
+  },
+  "footer": {
+    "servicesHeading": "Services",
+    "companyHeading": "Company",
+    "copyright": "© {year} Bexovar. All rights reserved."
+  },
+  "skipToContent": "Skip to content",
+  "home": {
+    "servicesEyebrow": "Services",
+    "servicesTitle": "What we build",
+    "servicesSubtitle": "Most engagements blend these. We help you pick the mix."
+  },
+  "notFound": {
+    "heading": "Page not found",
+    "body": "The page you were looking for does not exist or has moved.",
+    "backHome": "Back to home"
+  }
 }

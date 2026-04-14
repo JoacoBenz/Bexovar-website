@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HeroOutcomes } from "@/components/sections/hero-outcomes";
 import { ProofStrip } from "@/components/sections/proof-strip";
 import { DemosStrip } from "@/components/sections/demos-strip";
@@ -27,6 +27,8 @@ export default async function HomePage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  const t = await getTranslations("home");
+  const tCta = await getTranslations("cta");
   const { home, services, getFeaturedDemos } = await getContent(locale);
 
   return (
@@ -37,7 +39,7 @@ export default async function HomePage({
         body={home.hero.body}
         industries={home.hero.industries}
         primary={siteConfig.cta.primary}
-        secondary={{ href: "/demos", label: "See demos" }}
+        secondary={{ href: "/demos", label: tCta("seeDemos") }}
       />
       <ProofStrip metrics={home.metrics} />
       <DemosStrip demos={getFeaturedDemos()} />
@@ -45,9 +47,9 @@ export default async function HomePage({
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
           <SectionHeader
-            eyebrow="Services"
-            title="What we build"
-            subtitle="Most engagements blend these. We help you pick the mix."
+            eyebrow={t("servicesEyebrow")}
+            title={t("servicesTitle")}
+            subtitle={t("servicesSubtitle")}
           />
           <div className="mt-10">
             <ServicesGrid
