@@ -24,7 +24,7 @@ export default async function CaseStudiesPage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
-  const { caseStudies, caseStudyIndustries, caseStudyServices, serviceLabelBySlug } = await getContent(locale);
+  const { caseStudies, caseStudyIndustries, caseStudyServices, serviceLabelBySlug, industryLabels } = await getContent(locale);
 
   const serviceLabels = Object.fromEntries(
     caseStudyServices.map((s: ServiceSlug) => [s, serviceLabelBySlug(s) ?? s]),
@@ -45,6 +45,7 @@ export default async function CaseStudiesPage({
               industries={caseStudyIndustries}
               serviceSlugs={caseStudyServices}
               serviceLabels={serviceLabels}
+              industryLabels={industryLabels}
             />
           </div>
         </Container>

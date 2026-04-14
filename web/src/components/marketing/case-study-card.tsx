@@ -1,12 +1,12 @@
 import Link from "next/link";
 import type { CaseStudy } from "@/content/en/case-studies";
 
-export function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
+export function CaseStudyCard({ caseStudy, industryLabel }: { caseStudy: CaseStudy; industryLabel?: string }) {
   return (
     <article className="flex flex-col rounded-lg border border-border bg-white p-6 shadow-sm transition-shadow hover:shadow-lg">
       <div className="mb-3">
         <span className="inline-block rounded-full bg-bg-alt px-2 py-0.5 text-xs text-ink-muted">
-          {caseStudy.industry}
+          {industryLabel ?? caseStudy.industry}
         </span>
       </div>
       <div className="mb-2 flex items-baseline gap-2">

@@ -32,7 +32,7 @@ const demo: Demo = {
 
 describe("DemoCard", () => {
   it("renders title, duration, category, and summary", () => {
-    render(<DemoCard demo={demo} />);
+    render(<DemoCard demo={demo} categoryLabel="Finance" />);
     expect(screen.getByText(demo.title)).toBeInTheDocument();
     expect(screen.getByText(/45s/)).toBeInTheDocument();
     expect(screen.getByText("Finance")).toBeInTheDocument();
@@ -40,14 +40,14 @@ describe("DemoCard", () => {
   });
 
   it("the VideoEmbed play button is reachable and labeled with the title", () => {
-    render(<DemoCard demo={demo} />);
+    render(<DemoCard demo={demo} categoryLabel="Finance" />);
     expect(
       screen.getByRole("button", { name: /play ap invoice triage & coding video/i }),
     ).toBeEnabled();
   });
 
   it("clicking play swaps the poster for a playing video", () => {
-    render(<DemoCard demo={demo} />);
+    render(<DemoCard demo={demo} categoryLabel="Finance" />);
     fireEvent.click(
       screen.getByRole("button", { name: /play ap invoice triage & coding video/i }),
     );
@@ -58,7 +58,7 @@ describe("DemoCard", () => {
   });
 
   it("fires a Plausible demo_play event with slug and category on play click", () => {
-    render(<DemoCard demo={demo} />);
+    render(<DemoCard demo={demo} categoryLabel="Finance" />);
     fireEvent.click(
       screen.getByRole("button", { name: /play ap invoice triage & coding video/i }),
     );

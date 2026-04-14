@@ -23,7 +23,7 @@ export default async function DemosPage({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
-  const { demos, demoCategories } = await getContent(locale);
+  const { demos, demoCategories, demoCategoryLabels } = await getContent(locale);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default async function DemosPage({
             subtitle="Anonymized, real implementations. Filter by what looks closest to your workflow — and if you want a live one on your data, book a call."
           />
           <div className="mt-10">
-            <DemosGallery demos={demos} categories={demoCategories} />
+            <DemosGallery demos={demos} categories={demoCategories} categoryLabels={demoCategoryLabels} />
           </div>
         </Container>
       </section>

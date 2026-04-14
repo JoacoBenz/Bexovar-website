@@ -11,6 +11,7 @@ export {
 export {
   demos,
   demoCategories,
+  demoCategoryLabels,
   featuredDemoSlugs,
   getFeaturedDemos,
   type Demo,
@@ -22,6 +23,7 @@ export {
   caseStudies,
   caseStudyIndustries,
   caseStudyServices,
+  industryLabels,
   getCaseStudyBySlug,
   type Industry,
   type ServiceSlug,

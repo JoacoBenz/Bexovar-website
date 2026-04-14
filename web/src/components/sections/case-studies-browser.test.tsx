@@ -30,6 +30,13 @@ const studies: CaseStudy[] = [
 ];
 
 describe("CaseStudiesBrowser", () => {
+const identityIndustryLabels: Record<Industry, string> = {
+  Finance: "Finance",
+  Logistics: "Logistics",
+  Healthcare: "Healthcare",
+  Retail: "Retail",
+};
+
   it("shows all case studies under the All filter", () => {
     render(
       <CaseStudiesBrowser
@@ -37,6 +44,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     expect(screen.getByText("summary for a")).toBeInTheDocument();
@@ -51,6 +59,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Finance" }));
@@ -66,6 +75,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Custom Software" }));
@@ -81,6 +91,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Logistics" }));

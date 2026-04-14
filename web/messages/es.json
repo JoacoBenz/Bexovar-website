@@ -1,36 +1,36 @@
 {
   "nav": {
-    "services": "Services",
-    "caseStudies": "Case Studies",
+    "services": "Servicios",
+    "caseStudies": "Casos de estudio",
     "demos": "Demos",
-    "howWeWork": "How we work",
-    "about": "About",
-    "primaryLabel": "Primary",
-    "toggleMenu": "Toggle menu",
-    "languageGroupLabel": "Language"
+    "howWeWork": "Cómo trabajamos",
+    "about": "Nosotros",
+    "primaryLabel": "Primario",
+    "toggleMenu": "Alternar menú",
+    "languageGroupLabel": "Idioma"
   },
   "cta": {
-    "bookCall": "Book a call",
-    "requestProposal": "Request a proposal",
-    "contactUs": "Contact us",
-    "seeDemos": "See demos"
+    "bookCall": "Solicita una llamada",
+    "requestProposal": "Solicita una propuesta",
+    "contactUs": "Contáctanos",
+    "seeDemos": "Ver demos"
   },
   "footer": {
-    "servicesHeading": "Services",
-    "companyHeading": "Company",
-    "ctaHeading": "Ready to talk?",
-    "ctaSubtitle": "30-min call. See a live demo on your workflow.",
-    "copyright": "© {year} Bexovar. All rights reserved."
+    "servicesHeading": "Servicios",
+    "companyHeading": "Empresa",
+    "ctaHeading": "¿Listo para hablar?",
+    "ctaSubtitle": "Llamada de 30 minutos. Verás una demo en vivo sobre tu flujo de trabajo.",
+    "copyright": "© {year} Bexovar. Todos los derechos reservados."
   },
-  "skipToContent": "Skip to content",
+  "skipToContent": "Saltar al contenido",
   "home": {
-    "servicesEyebrow": "Services",
-    "servicesTitle": "What we build",
-    "servicesSubtitle": "Most engagements blend these. We help you pick the mix."
+    "servicesEyebrow": "Servicios",
+    "servicesTitle": "Lo que construimos",
+    "servicesSubtitle": "La mayoría de los proyectos combinan estos servicios. Te ayudamos a decidir la mezcla correcta."
   },
   "notFound": {
-    "heading": "Page not found",
-    "body": "The page you were looking for does not exist or has moved.",
-    "backHome": "Back to home"
+    "heading": "Página no encontrada",
+    "body": "La página que buscas no existe o se ha movido.",
+    "backHome": "Volver al inicio"
   }
 }

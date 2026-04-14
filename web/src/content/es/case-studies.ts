@@ -44,9 +44,9 @@ export type CaseStudy = {
 };
 
 export const industryLabels: Record<Industry, string> = {
-  Finance: "Finance",
-  Logistics: "Logistics",
-  Healthcare: "Healthcare",
+  Finance: "Finanzas",
+  Logistics: "Logística",
+  Healthcare: "Salud",
   Retail: "Retail",
 };
 
@@ -55,12 +55,12 @@ export const caseStudies = [
     slug: "finance-invoice-automation",
     industry: "Finance",
     services: ["rpa-agents", "custom-software"],
-    engagementLength: "10 weeks",
-    clientDescriptor: "Mid-market specialty lender, ~200 staff",
-    headlineOutcome: "42% lower invoice processing cost and 4-day faster close.",
-    headlineMetric: { value: "42%", label: "lower invoice processing cost" },
+    engagementLength: "10 semanas",
+    clientDescriptor: "Prestamista especializado de mediana empresa, ~200 empleados",
+    headlineOutcome: "42% menos costo de procesamiento de facturas y cierre 4 días más rápido.",
+    headlineMetric: { value: "42%", label: "menos costo de procesamiento de facturas" },
     cardSummary:
-      "Cut AP processing cost by 42% by replacing manual triage with automation plus a lightweight approval app.",
+      "Redujo el costo de procesamiento de AP en un 42% al reemplazar el triaje manual con automatización y una app ligera de aprobaciones.",
     situation:
       "Accounts payable was fielding 6,000+ invoices a month across a shared inbox, a vendor portal, and paper mail. A four-person team spent most of their week on data entry, GL coding, and chasing approvals. Month-end close slipped consistently because reconciliations waited on backlog.\n\nLeadership wanted to stop growing headcount to keep up with invoice volume without disrupting existing ERP workflows.",
     whatWeBuilt:
@@ -72,8 +72,8 @@ export const caseStudies = [
     pullQuotes: [
       {
         quote:
-          "We stopped asking whether we needed to hire another AP clerk. That question just went away.",
-        attribution: "VP of Finance, mid-market specialty lender",
+          "Dejamos de preguntarnos si necesitábamos contratar otro analista de AP. Esa pregunta simplemente desapareció.",
+        attribution: "VP de Finanzas, prestamista especializado de mediana empresa",
       },
     ],
     relatedDemoSlugs: ["invoice-triage", "portal-scraper"],
@@ -82,13 +82,13 @@ export const caseStudies = [
     slug: "logistics-shipment-reconciliation",
     industry: "Logistics",
     services: ["integrations", "custom-software"],
-    engagementLength: "3 months",
-    clientDescriptor: "Regional 3PL operator, 12 warehouses",
+    engagementLength: "3 meses",
+    clientDescriptor: "Operador 3PL regional, 12 almacenes",
     headlineOutcome:
-      "Cut shipment reconciliation from 4 hours to 20 minutes per day across all sites.",
-    headlineMetric: { value: "4h → 20min", label: "shipment reconciliation time" },
+      "Redujo la reconciliación de envíos de 4 horas a 20 minutos diarios en todos los sitios.",
+    headlineMetric: { value: "4h → 20min", label: "tiempo de reconciliación de envíos" },
     cardSummary:
-      "Replaced a manual carrier-vs-WMS matching process with an idempotent integration that surfaces only real exceptions.",
+      "Reemplazó un proceso manual de conciliación transportista-WMS con una integración idempotente que muestra solo las excepciones reales.",
     situation:
       "Warehouse ops teams spent roughly four hours every morning reconciling carrier EDI feeds against WMS receipts across twelve sites. Discrepancies — short shipments, damaged-in-transit flags, rate mismatches — got lost in spreadsheets and resurfaced weeks later as billing disputes.\n\nThe team knew most of the reconciliation was the same patterns repeated per site. They wanted the machine to do the easy work and escalate only the judgment calls.",
     whatWeBuilt:
@@ -100,12 +100,12 @@ export const caseStudies = [
     pullQuotes: [
       {
         quote:
-          "Our warehouse managers used to fight over who had to do the reconciliation. Now it's just a tab they check after coffee.",
-        attribution: "Director of Operations, regional 3PL",
+          "Nuestros gerentes de almacén peleaban por quién tenía que hacer la reconciliación. Ahora es solo una pestaña que revisan después del café.",
+        attribution: "Director de Operaciones, 3PL regional",
       },
       {
-        quote: "Idempotent replay saved us the week we had a bad carrier feed. The system just re-converged.",
-        attribution: "Head of IT, regional 3PL",
+        quote: "El replay idempotente nos salvó la semana que tuvimos un feed de transportista defectuoso. El sistema simplemente reconvergió.",
+        attribution: "Jefe de TI, 3PL regional",
       },
     ],
     relatedDemoSlugs: ["shipment-reconciliation", "crm-erp-sync"],
@@ -114,12 +114,12 @@ export const caseStudies = [
     slug: "healthcare-claims-intake",
     industry: "Healthcare",
     services: ["custom-software", "integrations"],
-    engagementLength: "4 months",
-    clientDescriptor: "Regional healthcare billing service, ~80 staff",
-    headlineOutcome: "$480K annual savings and faster payer turnaround in year one.",
-    headlineMetric: { value: "$480K", label: "annual savings, year one" },
+    engagementLength: "4 meses",
+    clientDescriptor: "Servicio regional de facturación médica, ~80 empleados",
+    headlineOutcome: "$480K de ahorro anual y menor tiempo de respuesta de pagadores en el primer año.",
+    headlineMetric: { value: "$480K", label: "ahorro anual, primer año" },
     cardSummary:
-      "Automated the first-pass eligibility check on incoming claims so staff only handle exceptions.",
+      "Automatizó la verificación de elegibilidad inicial en las reclamaciones entrantes para que el personal solo gestione excepciones.",
     situation:
       "The billing team was manually parsing claims from clinic partners, checking payer eligibility one claim at a time through four different payer portals, and routing work by paper pickup. Turnaround time was inconsistent — some claims sat for a week before anyone touched them.\n\nThe owners were weighing whether to hire three more claims analysts or re-examine the process.",
     whatWeBuilt:
@@ -131,8 +131,8 @@ export const caseStudies = [
     pullQuotes: [
       {
         quote:
-          "We were ready to sign offers on three new analysts. Instead we brought two existing people up into team-lead roles.",
-        attribution: "Owner, regional healthcare billing service",
+          "Estábamos listos para firmar contratos con tres nuevos analistas. En cambio, ascendimos a dos personas existentes a roles de team lead.",
+        attribution: "Dueño, servicio regional de facturación médica",
       },
     ],
     relatedDemoSlugs: ["claims-intake"],
@@ -141,12 +141,12 @@ export const caseStudies = [
     slug: "retail-ops-reallocation",
     industry: "Retail",
     services: ["consulting", "rpa-agents"],
-    engagementLength: "6 months",
-    clientDescriptor: "Multi-brand specialty retailer, 40+ locations",
-    headlineOutcome: "Freed 3 FTE for growth work without cutting any roles.",
-    headlineMetric: { value: "3 FTE", label: "reallocated to growth work" },
+    engagementLength: "6 meses",
+    clientDescriptor: "Retailer especializado multi-marca, más de 40 tiendas",
+    headlineOutcome: "Liberó 3 FTE para trabajo de crecimiento sin eliminar ningún puesto.",
+    headlineMetric: { value: "3 FTE", label: "reasignados a trabajo de crecimiento" },
     cardSummary:
-      "Process mapping plus targeted automation on three high-volume workflows reclaimed three roles' worth of time.",
+      "El mapeo de procesos más automatización enfocada en tres flujos de alto volumen recuperó el tiempo equivalente a tres roles.",
     situation:
       "Store operations, inventory, and marketing ops each had one or two processes that quietly consumed a full person's week — vendor catalog normalization, end-of-day reporting rollups, and promotional asset packaging. None was big enough to justify its own project; collectively they blocked the team from strategic work.",
     whatWeBuilt:
@@ -158,8 +158,8 @@ export const caseStudies = [
     pullQuotes: [
       {
         quote:
-          "We weren't short on ideas. We were short on hours. This gave us the hours back.",
-        attribution: "COO, multi-brand specialty retailer",
+          "No nos faltaban ideas. Nos faltaban horas. Esto nos devolvió las horas.",
+        attribution: "COO, retailer especializado multi-marca",
       },
     ],
     relatedDemoSlugs: ["portal-scraper", "ops-copilot"],

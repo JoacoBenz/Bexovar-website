@@ -19,77 +19,77 @@ export type Demo = {
   videoSrc?: string;
 };
 
+export const demoCategoryLabels: Record<DemoCategory, string> = {
+  "Finance": "Finanzas",
+  "Logistics": "Logística",
+  "Healthcare": "Salud",
+  "RPA": "RPA",
+  "Integrations": "Integraciones",
+  "AI agents": "Agentes de IA",
+};
+
 export const demos = [
   {
     slug: "invoice-triage",
-    title: "AP invoice triage & coding",
+    title: "Triaje y codificación de facturas de cuentas por pagar",
     duration: "45s",
     category: "Finance",
     summary:
-      "Invoices land in a shared inbox, get parsed, matched to POs, GL-coded, and queued for one-click approval.",
+      "Las facturas llegan a un buzón compartido, se procesan, se emparejan con órdenes de compra, se codifican contablemente y se ponen en cola para aprobación con un clic.",
     poster: "/demos/invoice-triage.svg",
     videoSrc: "/demos/invoice-triage.mp4",
   },
   {
     slug: "shipment-reconciliation",
-    title: "Shipment reconciliation",
+    title: "Reconciliación de envíos",
     duration: "1:10",
     category: "Logistics",
     summary:
-      "Carrier EDI feeds reconciled against WMS receipts; exceptions pushed to ops with proposed adjustments.",
+      "Feeds EDI de transportistas reconciliados contra recibos del WMS; excepciones enviadas a ops con ajustes propuestos.",
     poster: "/demos/shipment-reconciliation.svg",
     videoSrc: "/demos/shipment-reconciliation.mp4",
   },
   {
     slug: "claims-intake",
-    title: "Claims intake & eligibility check",
+    title: "Ingesta de reclamaciones y verificación de elegibilidad",
     duration: "55s",
     category: "Healthcare",
     summary:
-      "Patient claims parsed, checked against payer eligibility APIs, and routed by rule into the right work queue.",
+      "Reclamaciones de pacientes procesadas, verificadas contra APIs de elegibilidad del pagador y enrutadas por regla a la cola de trabajo correcta.",
     poster: "/demos/claims-intake.svg",
     videoSrc: "/demos/claims-intake.mp4",
   },
   {
     slug: "portal-scraper",
-    title: "Vendor portal scraper",
+    title: "Extractor de portales de proveedores",
     duration: "40s",
     category: "RPA",
     summary:
-      "Scheduled bot logs into three vendor portals, pulls statements, normalizes them, and drops a single report.",
+      "Un bot programado inicia sesión en tres portales de proveedores, extrae estados de cuenta, los normaliza y genera un único informe.",
     poster: "/demos/portal-scraper.svg",
     videoSrc: "/demos/portal-scraper.mp4",
   },
   {
     slug: "crm-erp-sync",
-    title: "CRM \u2194 ERP two-way sync",
+    title: "Sincronización bidireccional CRM \u2194 ERP",
     duration: "1:05",
     category: "Integrations",
     summary:
-      "Accounts, opportunities, and orders kept in sync bidirectionally with idempotent, replay-safe handlers.",
+      "Cuentas, oportunidades y pedidos sincronizados bidireccionalmente con manejadores idempotentes y seguros para repetición.",
     poster: "/demos/crm-erp-sync.svg",
     videoSrc: "/demos/crm-erp-sync.mp4",
   },
   {
     slug: "ops-copilot",
-    title: "Ops copilot \u2014 natural-language reports",
+    title: "Copiloto de operaciones \u2014 informes en lenguaje natural",
     duration: "1:20",
     category: "AI agents",
     summary:
-      "A scoped agent answers \u2018show me last week\u2019s exceptions by carrier\u2019 against real ops data, with guardrails.",
+      "Un agente con alcance definido responde \u2018muéstrame las excepciones de la semana pasada por transportista\u2019 contra datos reales de ops, con restricciones.",
     poster: "/demos/ops-copilot.svg",
     videoSrc: "/demos/ops-copilot.mp4",
   },
 ] as const satisfies readonly Demo[];
-
-export const demoCategoryLabels: Record<DemoCategory, string> = {
-  "Finance": "Finance",
-  "Logistics": "Logistics",
-  "Healthcare": "Healthcare",
-  "RPA": "RPA",
-  "Integrations": "Integrations",
-  "AI agents": "AI agents",
-};
 
 export const featuredDemoSlugs = [
   "invoice-triage",

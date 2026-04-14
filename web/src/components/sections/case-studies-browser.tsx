@@ -12,12 +12,15 @@ export function CaseStudiesBrowser({
   industries,
   serviceSlugs,
   serviceLabels,
+  industryLabels,
 }: {
   caseStudies: readonly CaseStudy[];
   industries: readonly Industry[];
   serviceSlugs: readonly ServiceSlug[];
   serviceLabels: Record<string, string>;
+  industryLabels?: Record<string, string>;
 }) {
+  const industryLabel = (ind: Industry) => industryLabels?.[ind] ?? ind;
   const serviceLabel = (slug: ServiceSlug) => serviceLabels[slug] ?? slug;
 
   const [active, setActive] = useState<ChipValue>("All");
@@ -25,26 +28,26 @@ export function CaseStudiesBrowser({
   // Build the flat chip row: industries first, then service labels.
   // CategoryFilter always prepends "All", so we pass the combined list without it.
   const chipLabels: string[] = [
-    ...industries,
+    ...industries.map((i) => industryLabel(i)),
     ...serviceSlugs.map((s) => serviceLabel(s)),
   ];
 
   const labelToValue = useMemo(() => {
     const map = new Map<string, ChipValue>();
-    for (const ind of industries) map.set(ind, ind);
+    for (const ind of industries) map.set(industryLabel(ind), ind);
     for (const s of serviceSlugs) map.set(serviceLabel(s), s);
     return map;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [industries, serviceSlugs, serviceLabels]);
+  }, [industries, serviceSlugs, serviceLabels, industryLabels]);
 
   const valueToLabel = useMemo(() => {
     const map = new Map<ChipValue, string>();
-    for (const ind of industries) map.set(ind, ind);
+    for (const ind of industries) map.set(ind, industryLabel(ind));
     for (const s of serviceSlugs) map.set(s, serviceLabel(s));
     map.set("All", "All");
     return map;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [industries, serviceSlugs, serviceLabels]);
+  }, [industries, serviceSlugs, serviceLabels, industryLabels]);
 
   const activeLabel = valueToLabel.get(active) ?? "All";
 
@@ -78,7 +81,7 @@ export function CaseStudiesBrowser({
       ) : (
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {visible.map((cs) => (
-            <CaseStudyCard key={cs.slug} caseStudy={cs} />
+            <CaseStudyCard key={cs.slug} caseStudy={cs} industryLabel={industryLabel(cs.industry)} />
           ))}
         </div>
       )}

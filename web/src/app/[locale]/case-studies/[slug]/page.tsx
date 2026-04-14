@@ -42,7 +42,7 @@ export default async function CaseStudyDetailPage({
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
-  const { getCaseStudyBySlug, demos } = await getContent(locale);
+  const { getCaseStudyBySlug, demos, industryLabels, demoCategoryLabels } = await getContent(locale);
   const cs = getCaseStudyBySlug(slug);
   if (!cs) notFound();
 
@@ -55,7 +55,7 @@ export default async function CaseStudyDetailPage({
       <section className="py-20 md:py-24 bg-bg-alt">
         <Container>
           <p className="text-eyebrow uppercase text-accent mb-4">
-            {cs.industry} · {cs.engagementLength}
+            {industryLabels[cs.industry]} · {cs.engagementLength}
           </p>
           <h1 className="text-h1 font-semibold text-ink max-w-3xl">{cs.headlineOutcome}</h1>
           <p className="mt-4 text-lg text-ink-muted max-w-2xl">{cs.clientDescriptor}</p>
@@ -87,7 +87,7 @@ export default async function CaseStudyDetailPage({
             <h2 className="text-h2 font-semibold text-ink">See the pieces in action</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {relatedDemos.map((d) => (
-                <DemoCard key={d.slug} demo={d} />
+                <DemoCard key={d.slug} demo={d} categoryLabel={demoCategoryLabels[d.category]} />
               ))}
             </div>
           </Container>

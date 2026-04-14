@@ -11,9 +11,11 @@ import type { Demo, DemoCategory } from "@/content/en/demos";
 export function DemosGallery({
   demos,
   categories,
+  categoryLabels,
 }: {
   demos: readonly Demo[];
   categories: readonly DemoCategory[];
+  categoryLabels?: Record<DemoCategory, string>;
 }) {
   const [active, setActive] = useState<CategoryValue<DemoCategory>>("All");
 
@@ -30,7 +32,7 @@ export function DemosGallery({
       ) : (
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {visible.map((d) => (
-            <DemoCard key={d.slug} demo={d} />
+            <DemoCard key={d.slug} demo={d} categoryLabel={categoryLabels?.[d.category]} />
           ))}
         </div>
       )}
