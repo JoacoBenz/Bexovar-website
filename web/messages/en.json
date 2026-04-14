@@ -33,6 +33,14 @@
     "body": "The page you were looking for does not exist or has moved.",
     "backHome": "Back to home"
   },
+  "demos": {
+    "metaTitle": "Demos — Bexovar",
+    "metaDescription": "Short demos of automation we've actually shipped across finance, logistics, healthcare, RPA, integrations, and AI agents. Want one on your data? Book a call."
+  },
+  "caseStudiesIndex": {
+    "metaTitle": "Case Studies — Bexovar",
+    "metaDescription": "Anonymized engagements that back our headline numbers. Filter by industry or service to see what we've actually shipped."
+  },
   "caseStudyDetail": {
     "spanishNarrativeNoticeTitle": "This case study is currently available only in English.",
     "spanishNarrativeNoticeBody": "Summary details below are translated; the full narrative sections remain in English."

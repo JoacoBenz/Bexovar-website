@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
 import { CaseStudiesBrowser } from "@/components/sections/case-studies-browser";
@@ -10,11 +10,16 @@ import { isLocale } from "@/i18n/routing";
 import type { ServiceSlug } from "@/content/en/case-studies";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "Case Studies — Bexovar",
-  description:
-    "Anonymized engagements that back our headline numbers. Filter by industry or service to see what we've actually shipped.",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  setRequestLocale(locale);
+  const t = await getTranslations("caseStudiesIndex");
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
 
 export default async function CaseStudiesPage({
   params,

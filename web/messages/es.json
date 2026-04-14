@@ -33,6 +33,14 @@
     "body": "La página que buscas no existe o se ha movido.",
     "backHome": "Volver al inicio"
   },
+  "demos": {
+    "metaTitle": "Demos — Bexovar",
+    "metaDescription": "Demos cortas de automatización que realmente hemos entregado en finanzas, logística, salud, RPA, integraciones y agentes de IA. ¿Quieres una sobre tus datos? Solicita una llamada."
+  },
+  "caseStudiesIndex": {
+    "metaTitle": "Casos de estudio — Bexovar",
+    "metaDescription": "Proyectos anonimizados que respaldan nuestras cifras. Filtra por industria o servicio para ver lo que realmente hemos entregado."
+  },
   "caseStudyDetail": {
     "spanishNarrativeNoticeTitle": "Este caso está disponible solo en inglés por ahora.",
     "spanishNarrativeNoticeBody": "El resumen en español aparece abajo; las secciones extensas están en inglés."
