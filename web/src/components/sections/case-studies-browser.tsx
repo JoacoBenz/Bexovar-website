@@ -63,6 +63,7 @@ export function CaseStudiesBrowser({
       <CategoryFilter
         categories={chipLabels}
         active={activeLabel}
+        label="Filter case studies by industry or service"
         onChange={(next) => {
           if (next === "All") {
             setActive("All");

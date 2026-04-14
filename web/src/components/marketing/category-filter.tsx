@@ -8,16 +8,18 @@ export function CategoryFilter<C extends string>({
   categories,
   active,
   onChange,
+  label = "Filter by category",
 }: {
   categories: readonly C[];
   active: CategoryValue<C>;
   onChange: (next: CategoryValue<C>) => void;
+  label?: string;
 }) {
   const options: CategoryValue<C>[] = ["All", ...categories];
   return (
     <div
       role="group"
-      aria-label="Filter demos by category"
+      aria-label={label}
       className="flex flex-wrap gap-2"
     >
       {options.map((opt) => {
