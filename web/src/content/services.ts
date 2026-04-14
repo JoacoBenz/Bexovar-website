@@ -138,3 +138,7 @@ export function getService(slug: string): ServiceDetail | undefined {
 }
 
 export const serviceSlugs = services.map((s) => s.slug);
+
+export function serviceLabelBySlug(slug: string): string | undefined {
+  return services.find((s) => s.slug === slug)?.title;
+}

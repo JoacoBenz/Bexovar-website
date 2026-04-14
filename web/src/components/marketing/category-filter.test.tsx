@@ -42,4 +42,16 @@ describe("CategoryFilter", () => {
     fireEvent.click(screen.getByRole("button", { name: "All" }));
     expect(onChange).toHaveBeenCalledWith("All");
   });
+
+  it("uses the default aria-label when no label prop is provided", () => {
+    render(<CategoryFilter categories={cats} active="All" onChange={() => {}} />);
+    expect(screen.getByRole("group", { name: "Filter by category" })).toBeInTheDocument();
+  });
+
+  it("uses a custom aria-label when the label prop is provided", () => {
+    render(
+      <CategoryFilter categories={cats} active="All" onChange={() => {}} label="Filter demos by category" />,
+    );
+    expect(screen.getByRole("group", { name: "Filter demos by category" })).toBeInTheDocument();
+  });
 });

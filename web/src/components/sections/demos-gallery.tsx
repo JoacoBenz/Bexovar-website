@@ -24,7 +24,7 @@ export function DemosGallery({
 
   return (
     <div>
-      <CategoryFilter categories={categories} active={active} onChange={setActive} />
+      <CategoryFilter categories={categories} active={active} onChange={setActive} label="Filter demos by category" />
       {visible.length === 0 ? (
         <p className="mt-10 text-ink-muted">No demos in this category yet.</p>
       ) : (
