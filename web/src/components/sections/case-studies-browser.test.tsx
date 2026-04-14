@@ -36,7 +36,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
+        serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
       />,
     );
     expect(screen.getByText("summary for a")).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
+        serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Finance" }));
@@ -65,10 +65,10 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
+        serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
       />,
     );
-    fireEvent.click(screen.getByRole("button", { name: "custom-software" }));
+    fireEvent.click(screen.getByRole("button", { name: "Custom Software" }));
     expect(screen.queryByText("summary for a")).toBeNull();
     expect(screen.getByText("summary for b")).toBeInTheDocument();
     expect(screen.getByText("summary for c")).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe("CaseStudiesBrowser", () => {
         caseStudies={studies.filter((s) => s.industry === "Finance")}
         industries={industries}
         serviceSlugs={serviceSlugs}
-        serviceLabels={{ "custom-software": "custom-software", "rpa-agents": "rpa-agents" }}
+        serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Logistics" }));
