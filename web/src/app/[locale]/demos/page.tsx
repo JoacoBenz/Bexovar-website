@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
 import { DemosGallery } from "@/components/sections/demos-gallery";
 import { CTASection } from "@/components/sections/cta-section";
-import { demos, demoCategories } from "@/content/demos";
+import { getContent } from "@/content/get-content";
+import { isLocale } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -12,7 +15,16 @@ export const metadata: Metadata = {
     "Short demos of automation we've actually shipped across finance, logistics, healthcare, RPA, integrations, and AI agents. Want one on your data? Book a call.",
 };
 
-export default function DemosPage() {
+export default async function DemosPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { demos, demoCategories } = await getContent(locale);
+
   return (
     <>
       <section className="py-20 md:py-28 bg-bg-alt">

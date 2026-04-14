@@ -1,7 +1,7 @@
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "./section-header";
 import { StatBlock } from "@/components/marketing/stat-block";
-import type { Metric } from "@/content/home";
+import type { Metric } from "@/content/en/home";
 
 export function ProofStrip({ metrics }: { metrics: readonly Metric[] }) {
   return (

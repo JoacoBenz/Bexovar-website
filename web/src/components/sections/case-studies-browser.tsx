@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { CategoryFilter } from "@/components/marketing/category-filter";
 import { CaseStudyCard } from "@/components/marketing/case-study-card";
-import type { CaseStudy, Industry, ServiceSlug } from "@/content/case-studies";
+import type { CaseStudy, Industry, ServiceSlug } from "@/content/en/case-studies";
 
 type ChipValue = "All" | Industry | ServiceSlug;
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { DemosStrip } from "./demos-strip";
-import type { Demo } from "@/content/demos";
+import type { Demo } from "@/content/en/demos";
 
 const demos: Demo[] = [
   {

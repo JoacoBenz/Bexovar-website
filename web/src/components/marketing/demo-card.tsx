@@ -1,7 +1,7 @@
 "use client";
 
 import { usePlausible } from "next-plausible";
-import type { Demo } from "@/content/demos";
+import type { Demo } from "@/content/en/demos";
 import { VideoEmbed } from "./video-embed";
 
 type DemoPlayEvents = { demo_play: { slug: string; category: string } };

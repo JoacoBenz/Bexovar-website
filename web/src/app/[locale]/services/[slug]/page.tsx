@@ -1,30 +1,45 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
 import { SectionHeader } from "@/components/sections/section-header";
-import { getService, serviceSlugs } from "@/content/services";
+import { getContent } from "@/content/get-content";
+import { isLocale, locales } from "@/i18n/routing";
+import { serviceSlugs } from "@/content/en/services";
 import { siteConfig } from "@/lib/site-config";
 
 export function generateStaticParams() {
-  return serviceSlugs.map((slug) => ({ slug }));
+  return locales.flatMap((locale) =>
+    serviceSlugs.map((slug) => ({ locale, slug })),
+  );
 }
 
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> }
-): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) return {};
+  setRequestLocale(locale);
+  const { getService } = await getContent(locale);
   const s = getService(slug);
   if (!s) return {};
   return { title: s.title, description: s.tagline };
 }
 
-export default async function ServiceDetailPage(
-  { params }: { params: Promise<{ slug: string }> }
-) {
-  const { slug } = await params;
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { getService } = await getContent(locale);
   const service = getService(slug);
   if (!service) notFound();
 

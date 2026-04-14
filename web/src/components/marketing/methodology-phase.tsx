@@ -1,4 +1,4 @@
-import type { Phase } from "@/content/how-we-work";
+import type { Phase } from "@/content/en/how-we-work";
 
 export function MethodologyPhase({ phase }: { phase: Phase }) {
   return (

@@ -1,24 +1,31 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { CaseStudySection } from "@/components/marketing/case-study-section";
 import { PullQuote } from "@/components/marketing/pull-quote";
 import { DemoCard } from "@/components/marketing/demo-card";
 import { CTASection } from "@/components/sections/cta-section";
-import { caseStudies, getCaseStudyBySlug } from "@/content/case-studies";
-import { demos } from "@/content/demos";
+import { getContent } from "@/content/get-content";
+import { isLocale, locales } from "@/i18n/routing";
+import { caseStudies } from "@/content/en/case-studies";
 import { siteConfig } from "@/lib/site-config";
 
 export function generateStaticParams() {
-  return caseStudies.map((c) => ({ slug: c.slug }));
+  return locales.flatMap((locale) =>
+    caseStudies.map((c) => ({ locale, slug: c.slug })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) return {};
+  setRequestLocale(locale);
+  const { getCaseStudyBySlug } = await getContent(locale);
   const cs = getCaseStudyBySlug(slug);
   if (!cs) return { title: "Case study not found — Bexovar" };
   return {
@@ -30,9 +37,12 @@ export async function generateMetadata({
 export default async function CaseStudyDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { getCaseStudyBySlug, demos } = await getContent(locale);
   const cs = getCaseStudyBySlug(slug);
   if (!cs) notFound();
 

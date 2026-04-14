@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "./section-header";
 import { DemoCard } from "@/components/marketing/demo-card";
-import type { Demo } from "@/content/demos";
+import type { Demo } from "@/content/en/demos";
 
 export function DemosStrip({ demos }: { demos: readonly Demo[] }) {
   return (

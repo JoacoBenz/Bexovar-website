@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CaseStudy } from "@/content/case-studies";
+import type { CaseStudy } from "@/content/en/case-studies";
 
 export function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
   return (

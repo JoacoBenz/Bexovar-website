@@ -18,7 +18,7 @@ beforeEach(() => {
     dispatchEvent: vi.fn(),
   })) as unknown as typeof window.matchMedia;
 });
-import type { Demo } from "@/content/demos";
+import type { Demo } from "@/content/en/demos";
 
 const demo: Demo = {
   slug: "invoice-triage",

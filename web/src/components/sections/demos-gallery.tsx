@@ -6,7 +6,7 @@ import {
   type CategoryValue,
 } from "@/components/marketing/category-filter";
 import { DemoCard } from "@/components/marketing/demo-card";
-import type { Demo, DemoCategory } from "@/content/demos";
+import type { Demo, DemoCategory } from "@/content/en/demos";
 
 export function DemosGallery({
   demos,

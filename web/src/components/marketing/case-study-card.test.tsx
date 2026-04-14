@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { CaseStudyCard } from "./case-study-card";
-import type { CaseStudy } from "@/content/case-studies";
+import type { CaseStudy } from "@/content/en/case-studies";
 
 const cs: CaseStudy = {
   slug: "finance-invoice-automation",

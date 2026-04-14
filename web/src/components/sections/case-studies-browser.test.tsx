@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { CaseStudiesBrowser } from "./case-studies-browser";
-import type { CaseStudy, Industry, ServiceSlug } from "@/content/case-studies";
+import type { CaseStudy, Industry, ServiceSlug } from "@/content/en/case-studies";
 
 const industries: Industry[] = ["Finance", "Logistics"];
 const serviceSlugs: ServiceSlug[] = ["custom-software", "rpa-agents"];

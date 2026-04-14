@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { HeroOutcomes } from "@/components/sections/hero-outcomes";
 import { ProofStrip } from "@/components/sections/proof-strip";
 import { DemosStrip } from "@/components/sections/demos-strip";
@@ -8,9 +9,9 @@ import { ProcessStrip } from "@/components/sections/process-strip";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
-import { home } from "@/content/home";
-import { getFeaturedDemos } from "@/content/demos";
-import { services } from "@/content/services";
+import { getContent } from "@/content/get-content";
+import { isLocale } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -18,7 +19,16 @@ export const metadata: Metadata = {
     "Bexovar builds custom software and intelligent automation for mid-market operators. Cut operational cost 30–60%. Book a call to see a live demo on your workflow.",
 };
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { home, services, getFeaturedDemos } = await getContent(locale);
+
   return (
     <>
       <HeroOutcomes

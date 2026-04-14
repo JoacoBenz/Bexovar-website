@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
 import { CaseStudiesBrowser } from "@/components/sections/case-studies-browser";
 import { CTASection } from "@/components/sections/cta-section";
-import {
-  caseStudies,
-  caseStudyIndustries,
-  caseStudyServices,
-} from "@/content/case-studies";
-import { serviceLabelBySlug } from "@/content/services";
-import type { ServiceSlug } from "@/content/case-studies";
+import { getContent } from "@/content/get-content";
+import { isLocale } from "@/i18n/routing";
+import type { ServiceSlug } from "@/content/en/case-studies";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -18,11 +16,20 @@ export const metadata: Metadata = {
     "Anonymized engagements that back our headline numbers. Filter by industry or service to see what we've actually shipped.",
 };
 
-const serviceLabels = Object.fromEntries(
-  caseStudyServices.map((s: ServiceSlug) => [s, serviceLabelBySlug(s) ?? s]),
-) as Record<string, string>;
+export default async function CaseStudiesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { caseStudies, caseStudyIndustries, caseStudyServices, serviceLabelBySlug } = await getContent(locale);
 
-export default function CaseStudiesPage() {
+  const serviceLabels = Object.fromEntries(
+    caseStudyServices.map((s: ServiceSlug) => [s, serviceLabelBySlug(s) ?? s]),
+  ) as Record<string, string>;
+
   return (
     <>
       <section className="py-20 md:py-28 bg-bg-alt">

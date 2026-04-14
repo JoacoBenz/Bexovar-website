@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "./section-header";
-import type { ProcessStep } from "@/content/home";
+import type { ProcessStep } from "@/content/en/home";
 
 export function ProcessStrip({
   steps,
