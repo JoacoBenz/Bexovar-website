@@ -96,6 +96,14 @@ export const howWeWork = {
       a: "Noventa días de soporte incluido para corrección de errores y ajustes pequeños. Después, la mayoría de los clientes pasa a un retainer mensual para mejoras, o vuelve para el siguiente proyecto.",
     },
   ] satisfies Faq[],
+  sectionHeaders: {
+    phasesEyebrow: "Las cuatro fases",
+    phasesTitle: "La misma estructura siempre",
+    differentiatorsEyebrow: "Por qué funciona",
+    differentiatorsTitle: "Qué nos hace diferentes",
+    faqEyebrow: "Preguntas",
+    faqTitle: "Lo que los directivos suelen preguntar",
+  },
   closingCta: {
     heading: "Empieza con una llamada de 30 minutos.",
     subtitle: "Te diremos si tu problema se adapta a lo que hacemos — con honestidad — antes de cotizar nada.",

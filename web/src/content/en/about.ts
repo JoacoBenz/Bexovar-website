@@ -31,4 +31,14 @@ export const about = {
     { headline: "6 wks",  label: "Median engagement length" },
     { headline: "5",      label: "Industries we've shipped in" },
   ],
+  sectionHeaders: {
+    valuesEyebrow: "Values",
+    valuesTitle: "How we operate",
+    statsEyebrow: "By the numbers",
+    statsTitle: "A bit of context",
+  },
+  closingCta: {
+    heading: "Want to know if we're a fit?",
+    subtitle: "Book a 30-min call. If we're not, we'll tell you.",
+  },
 } as const;

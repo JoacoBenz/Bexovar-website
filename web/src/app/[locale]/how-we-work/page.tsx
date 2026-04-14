@@ -52,7 +52,7 @@ export default async function HowWeWorkPage({
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
-          <SectionHeader eyebrow="The four phases" title="Same shape every time" />
+          <SectionHeader eyebrow={howWeWork.sectionHeaders.phasesEyebrow} title={howWeWork.sectionHeaders.phasesTitle} />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {howWeWork.phases.map((p) => (
               <MethodologyPhase key={p.number} phase={p} />
@@ -63,7 +63,7 @@ export default async function HowWeWorkPage({
 
       <section className="py-20 md:py-28">
         <Container>
-          <SectionHeader eyebrow="Why this works" title="What makes this different" />
+          <SectionHeader eyebrow={howWeWork.sectionHeaders.differentiatorsEyebrow} title={howWeWork.sectionHeaders.differentiatorsTitle} />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {howWeWork.differentiators.map((d) => (
               <ValueCard key={d.title} title={d.title} body={d.body} />
@@ -74,7 +74,7 @@ export default async function HowWeWorkPage({
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container className="max-w-3xl">
-          <SectionHeader eyebrow="Questions" title="Things execs usually ask" />
+          <SectionHeader eyebrow={howWeWork.sectionHeaders.faqEyebrow} title={howWeWork.sectionHeaders.faqTitle} />
           <div className="mt-10">
             <Faq items={howWeWork.faq} />
           </div>

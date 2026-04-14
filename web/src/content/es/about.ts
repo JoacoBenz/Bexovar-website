@@ -31,4 +31,14 @@ export const about = {
     { headline: "6 sem",  label: "Duración promedio de un proyecto" },
     { headline: "5",      label: "Industrias en las que hemos trabajado" },
   ],
+  sectionHeaders: {
+    valuesEyebrow: "Valores",
+    valuesTitle: "Cómo operamos",
+    statsEyebrow: "En números",
+    statsTitle: "Un poco de contexto",
+  },
+  closingCta: {
+    heading: "¿Quieres saber si somos el equipo indicado?",
+    subtitle: "Agenda una llamada de 30 min. Si no lo somos, te lo decimos.",
+  },
 } as const;

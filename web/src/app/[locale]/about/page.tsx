@@ -54,7 +54,7 @@ export default async function AboutPage({
 
       <section className="py-20 md:py-28">
         <Container>
-          <SectionHeader eyebrow="Values" title="How we operate" />
+          <SectionHeader eyebrow={about.sectionHeaders.valuesEyebrow} title={about.sectionHeaders.valuesTitle} />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {about.values.map((v) => (
               <ValueCard key={v.title} title={v.title} body={v.body} />
@@ -65,7 +65,7 @@ export default async function AboutPage({
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
-          <SectionHeader eyebrow="By the numbers" title="A bit of context" />
+          <SectionHeader eyebrow={about.sectionHeaders.statsEyebrow} title={about.sectionHeaders.statsTitle} />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {about.stats.map((s) => (
               <StatBlock key={s.label} headline={s.headline} label={s.label} />
@@ -75,8 +75,8 @@ export default async function AboutPage({
       </section>
 
       <CTASection
-        heading="Want to know if we're a fit?"
-        subtitle="Book a 30-min call. If we're not, we'll tell you."
+        heading={about.closingCta.heading}
+        subtitle={about.closingCta.subtitle}
         primary={siteConfig.cta.primary}
         secondary={siteConfig.cta.secondary}
       />

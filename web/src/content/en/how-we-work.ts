@@ -96,6 +96,14 @@ export const howWeWork = {
       a: "Ninety days of included support for bug fixes and small tweaks. After that, most clients move to a monthly retainer for enhancements, or come back for the next project.",
     },
   ] satisfies Faq[],
+  sectionHeaders: {
+    phasesEyebrow: "The four phases",
+    phasesTitle: "Same shape every time",
+    differentiatorsEyebrow: "Why this works",
+    differentiatorsTitle: "What makes this different",
+    faqEyebrow: "Questions",
+    faqTitle: "Things execs usually ask",
+  },
   closingCta: {
     heading: "Start with a 30-minute call.",
     subtitle: "We'll tell you whether your problem fits our shape — honestly — before we quote anything.",
