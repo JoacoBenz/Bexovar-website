@@ -10,6 +10,7 @@ import { getContent } from "@/content/get-content";
 import { isLocale, locales } from "@/i18n/routing";
 import { caseStudies } from "@/content/en/case-studies";
 import { siteConfig } from "@/lib/site-config";
+import { BilingualBanner } from "@/components/layout/bilingual-banner";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -54,6 +55,11 @@ export default async function CaseStudyDetailPage({
     <>
       <section className="py-20 md:py-24 bg-bg-alt">
         <Container>
+          {locale === "es" && (
+            <div className="mb-6">
+              <BilingualBanner />
+            </div>
+          )}
           <p className="text-eyebrow uppercase text-accent mb-4">
             {industryLabels[cs.industry]} · {cs.engagementLength}
           </p>

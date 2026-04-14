@@ -32,5 +32,9 @@
     "heading": "Page not found",
     "body": "The page you were looking for does not exist or has moved.",
     "backHome": "Back to home"
+  },
+  "caseStudyDetail": {
+    "spanishNarrativeNoticeTitle": "This case study is currently available only in English.",
+    "spanishNarrativeNoticeBody": "Summary details below are translated; the full narrative sections remain in English."
   }
 }

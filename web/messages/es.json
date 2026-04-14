@@ -32,5 +32,9 @@
     "heading": "Página no encontrada",
     "body": "La página que buscas no existe o se ha movido.",
     "backHome": "Volver al inicio"
+  },
+  "caseStudyDetail": {
+    "spanishNarrativeNoticeTitle": "Este caso está disponible solo en inglés por ahora.",
+    "spanishNarrativeNoticeBody": "El resumen en español aparece abajo; las secciones extensas están en inglés."
   }
 }
