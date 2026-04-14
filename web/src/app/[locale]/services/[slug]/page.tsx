@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/cta-section";
@@ -44,6 +44,7 @@ export default async function ServiceDetailPage({
   const { locale, slug } = await params;
   if (!isLocale(locale)) notFound();
   setRequestLocale(locale);
+  const tCta = await getTranslations("cta");
   const { getService } = await getContent(locale);
   const service = getService(slug);
   if (!service) notFound();
@@ -57,10 +58,10 @@ export default async function ServiceDetailPage({
           <p className="mt-6 text-lg text-ink-muted max-w-2xl">{service.hero.body}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={siteConfig.cta.primary.href} size="lg">
-              {siteConfig.cta.primary.label}
+              {tCta("bookCall")}
             </Button>
             <Button href={siteConfig.cta.secondary.href} variant="secondary" size="lg">
-              {siteConfig.cta.secondary.label}
+              {tCta("requestProposal")}
             </Button>
           </div>
         </Container>
