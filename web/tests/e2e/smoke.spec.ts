@@ -76,3 +76,43 @@ test("homepage demos strip links to the gallery", async ({ page }) => {
   await page.getByRole("link", { name: /browse full demo gallery/i }).click();
   await expect(page).toHaveURL(/\/demos$/);
 });
+
+test("/case-studies renders hero, industry + service chips, and all 4 cards", async ({ page }) => {
+  await page.goto("/case-studies");
+  await expect(page.getByRole("heading", { name: /proof, not promises/i })).toBeVisible();
+  for (const ind of ["Finance", "Logistics", "Healthcare", "Retail"]) {
+    await expect(page.getByRole("button", { name: ind, exact: true })).toBeVisible();
+  }
+  for (const svc of ["Custom Software", "RPA & Agents", "Systems Integration", "Process Consulting"]) {
+    await expect(page.getByRole("button", { name: svc, exact: true })).toBeVisible();
+  }
+  const cards = page.getByRole("article");
+  await expect(cards).toHaveCount(4);
+});
+
+test("/case-studies service filter narrows the grid", async ({ page }) => {
+  await page.goto("/case-studies");
+  await page.getByRole("button", { name: "Custom Software", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Custom Software", exact: true })).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  const cards = page.getByRole("article");
+  const count = await cards.count();
+  expect(count).toBeGreaterThan(0);
+  expect(count).toBeLessThan(4);
+});
+
+test("/case-studies card navigates to the detail page with expected sections", async ({ page }) => {
+  await page.goto("/case-studies");
+  await page
+    .getByRole("link", { name: /read the finance-invoice-automation case study/i })
+    .click();
+  await expect(page).toHaveURL(/\/case-studies\/finance-invoice-automation$/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/42%/);
+  for (const section of ["The Situation", "What We Built", "The Outcome", "How It Was Delivered"]) {
+    await expect(page.getByRole("heading", { level: 2, name: section })).toBeVisible();
+  }
+  // At least one related demo renders
+  await expect(page.getByRole("button", { name: /^play .* video$/i }).first()).toBeVisible();
+});
