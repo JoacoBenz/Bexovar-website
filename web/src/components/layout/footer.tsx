@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { Container } from "./container";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const tCta = useTranslations("cta");
   const year = new Date().getFullYear();
 
   return (
@@ -39,12 +40,12 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-eyebrow uppercase text-ink-subtle mb-4">Ready to talk?</h3>
+          <h3 className="text-eyebrow uppercase text-ink-subtle mb-4">{t("ctaHeading")}</h3>
           <p className="text-sm text-ink-muted mb-4">
-            30-min call. See a live demo on your workflow.
+            {t("ctaSubtitle")}
           </p>
           <Button href={siteConfig.cta.primary.href} size="md">
-            {siteConfig.cta.primary.label}
+            {tCta("bookCall")}
           </Button>
         </div>
       </Container>

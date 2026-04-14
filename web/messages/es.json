@@ -18,6 +18,8 @@
   "footer": {
     "servicesHeading": "Services",
     "companyHeading": "Company",
+    "ctaHeading": "Ready to talk?",
+    "ctaSubtitle": "30-min call. See a live demo on your workflow.",
     "copyright": "© {year} Bexovar. All rights reserved."
   },
   "skipToContent": "Skip to content",
