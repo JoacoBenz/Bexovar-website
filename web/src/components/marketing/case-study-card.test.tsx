@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { CaseStudyCard } from "./case-study-card";
-import type { CaseStudy } from "@/content/case-studies";
+import type { CaseStudy } from "@/content/en/case-studies";
 
 const cs: CaseStudy = {
   slug: "finance-invoice-automation",
@@ -22,7 +22,7 @@ const cs: CaseStudy = {
 
 describe("CaseStudyCard", () => {
   it("renders industry tag, headline metric, summary, and link to the detail page", () => {
-    render(<CaseStudyCard caseStudy={cs} />);
+    render(<CaseStudyCard caseStudy={cs} industryLabel="Finance" />);
     expect(screen.getByText("Finance")).toBeInTheDocument();
     expect(screen.getByText("42%")).toBeInTheDocument();
     expect(screen.getByText(/lower invoice processing cost/i)).toBeInTheDocument();

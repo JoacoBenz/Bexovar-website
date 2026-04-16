@@ -1,18 +1,40 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
 import { CTASection } from "@/components/sections/cta-section";
 import { StatBlock } from "@/components/marketing/stat-block";
 import { ValueCard } from "@/components/marketing/value-card";
-import { about } from "@/content/about";
+import { getContent } from "@/content/get-content";
+import { isLocale } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: about.hero.body,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  setRequestLocale(locale);
+  const { about } = await getContent(locale);
+  return {
+    title: "About",
+    description: about.hero.body,
+  };
+}
 
-export default function AboutPage() {
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { about } = await getContent(locale);
+
   return (
     <>
       <section className="py-20 md:py-28">
@@ -32,7 +54,7 @@ export default function AboutPage() {
 
       <section className="py-20 md:py-28">
         <Container>
-          <SectionHeader eyebrow="Values" title="How we operate" />
+          <SectionHeader eyebrow={about.sectionHeaders.valuesEyebrow} title={about.sectionHeaders.valuesTitle} />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {about.values.map((v) => (
               <ValueCard key={v.title} title={v.title} body={v.body} />
@@ -43,7 +65,7 @@ export default function AboutPage() {
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
-          <SectionHeader eyebrow="By the numbers" title="A bit of context" />
+          <SectionHeader eyebrow={about.sectionHeaders.statsEyebrow} title={about.sectionHeaders.statsTitle} />
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {about.stats.map((s) => (
               <StatBlock key={s.label} headline={s.headline} label={s.label} />
@@ -53,8 +75,8 @@ export default function AboutPage() {
       </section>
 
       <CTASection
-        heading="Want to know if we're a fit?"
-        subtitle="Book a 30-min call. If we're not, we'll tell you."
+        heading={about.closingCta.heading}
+        subtitle={about.closingCta.subtitle}
         primary={siteConfig.cta.primary}
         secondary={siteConfig.cta.secondary}
       />

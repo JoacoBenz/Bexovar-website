@@ -1,13 +1,26 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { Container } from "./container";
 import { cn } from "@/lib/cn";
+import { LocaleSwitcher } from "./locale-switcher";
 
 export function NavBar() {
   const [open, setOpen] = useState(false);
+  const t = useTranslations("nav");
+  const tCta = useTranslations("cta");
+
+  const links = [
+    { href: "/services", label: t("services") },
+    { href: "/case-studies", label: t("caseStudies") },
+    { href: "/demos", label: t("demos") },
+    { href: "/how-we-work", label: t("howWeWork") },
+    { href: "/about", label: t("about") },
+  ];
+
   return (
     <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-border">
       <Container className="flex items-center justify-between py-4">
@@ -15,8 +28,8 @@ export function NavBar() {
           {siteConfig.name}
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-          {siteConfig.nav.map((link) => (
+        <nav className="hidden md:flex items-center gap-8" aria-label={t("primaryLabel")}>
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -27,15 +40,16 @@ export function NavBar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <LocaleSwitcher />
           <Button href={siteConfig.cta.primary.href} size="sm">
-            {siteConfig.cta.primary.label}
+            {tCta("bookCall")}
           </Button>
         </div>
 
         <button
           className="md:hidden p-2"
-          aria-label="Toggle menu"
+          aria-label={t("toggleMenu")}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
@@ -48,11 +62,11 @@ export function NavBar() {
       <div
         className={cn(
           "md:hidden border-t border-border bg-white",
-          open ? "block" : "hidden"
+          open ? "block" : "hidden",
         )}
       >
         <Container className="flex flex-col gap-4 py-4">
-          {siteConfig.nav.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -62,8 +76,9 @@ export function NavBar() {
               {link.label}
             </Link>
           ))}
+          <LocaleSwitcher />
           <Button href={siteConfig.cta.primary.href} size="md" className="w-full">
-            {siteConfig.cta.primary.label}
+            {tCta("bookCall")}
           </Button>
         </Container>
       </div>

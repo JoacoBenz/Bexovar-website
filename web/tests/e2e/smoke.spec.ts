@@ -116,3 +116,42 @@ test("/case-studies card navigates to the detail page with expected sections", a
   // At least one related demo renders
   await expect(page.getByRole("button", { name: /^play .* video$/i }).first()).toBeVisible();
 });
+
+test("clicking the Spanish locale switcher navigates to /es home and updates nav text", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.getByRole("link", { name: "Services", exact: true }).first()).toBeVisible();
+  await page.getByRole("button", { name: "ES", exact: true }).first().click();
+  await expect(page).toHaveURL(/\/es$/);
+  await expect(page.getByRole("link", { name: "Servicios", exact: true }).first()).toBeVisible();
+});
+
+test("returning to English via the switcher restores the English URL", async ({ page }) => {
+  await page.goto("/es/demos");
+  await page.getByRole("button", { name: "EN", exact: true }).first().click();
+  await expect(page).toHaveURL(/\/demos$/);
+  await expect(page.getByRole("link", { name: "Services", exact: true }).first()).toBeVisible();
+});
+
+test("/es/demos renders Spanish category chips and cards", async ({ page }) => {
+  await page.goto("/es/demos");
+  await expect(page.getByRole("button", { name: "Finanzas", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Logística", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: /^play .* video$/i }).first()).toBeVisible();
+});
+
+test("/es/case-studies/finance-invoice-automation shows the English-only banner", async ({
+  page,
+}) => {
+  await page.goto("/es/case-studies/finance-invoice-automation");
+  await expect(page.getByText(/solo en inglés por ahora/i)).toBeVisible();
+  // Long prose section heading is still English
+  await expect(page.getByRole("heading", { level: 2, name: "The Situation" })).toBeVisible();
+});
+
+test("/es/this-route-does-not-exist returns localized 404", async ({ page }) => {
+  const res = await page.goto("/es/this-route-does-not-exist");
+  expect(res?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: /página no encontrada/i })).toBeVisible();
+});

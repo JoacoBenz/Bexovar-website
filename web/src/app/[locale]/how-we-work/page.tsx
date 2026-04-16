@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/layout/container";
 import { SectionHeader } from "@/components/sections/section-header";
 import { CTASection } from "@/components/sections/cta-section";
@@ -6,15 +8,35 @@ import { OrbitalGraphic } from "@/components/graphics/orbital-graphic";
 import { MethodologyPhase } from "@/components/marketing/methodology-phase";
 import { ValueCard } from "@/components/marketing/value-card";
 import { Faq } from "@/components/marketing/faq";
-import { howWeWork } from "@/content/how-we-work";
+import { getContent } from "@/content/get-content";
+import { isLocale } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "How we work",
-  description: howWeWork.hero.body,
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  setRequestLocale(locale);
+  const { howWeWork } = await getContent(locale);
+  return {
+    title: "How we work",
+    description: howWeWork.hero.body,
+  };
+}
 
-export default function HowWeWorkPage() {
+export default async function HowWeWorkPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  setRequestLocale(locale);
+  const { howWeWork } = await getContent(locale);
+
   return (
     <>
       <section className="py-20 md:py-28">
@@ -30,7 +52,7 @@ export default function HowWeWorkPage() {
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container>
-          <SectionHeader eyebrow="The four phases" title="Same shape every time" />
+          <SectionHeader eyebrow={howWeWork.sectionHeaders.phasesEyebrow} title={howWeWork.sectionHeaders.phasesTitle} />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {howWeWork.phases.map((p) => (
               <MethodologyPhase key={p.number} phase={p} />
@@ -41,7 +63,7 @@ export default function HowWeWorkPage() {
 
       <section className="py-20 md:py-28">
         <Container>
-          <SectionHeader eyebrow="Why this works" title="What makes this different" />
+          <SectionHeader eyebrow={howWeWork.sectionHeaders.differentiatorsEyebrow} title={howWeWork.sectionHeaders.differentiatorsTitle} />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {howWeWork.differentiators.map((d) => (
               <ValueCard key={d.title} title={d.title} body={d.body} />
@@ -52,7 +74,7 @@ export default function HowWeWorkPage() {
 
       <section className="py-20 md:py-28 bg-bg-alt">
         <Container className="max-w-3xl">
-          <SectionHeader eyebrow="Questions" title="Things execs usually ask" />
+          <SectionHeader eyebrow={howWeWork.sectionHeaders.faqEyebrow} title={howWeWork.sectionHeaders.faqTitle} />
           <div className="mt-10">
             <Faq items={howWeWork.faq} />
           </div>

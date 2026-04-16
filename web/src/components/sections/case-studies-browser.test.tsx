@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { CaseStudiesBrowser } from "./case-studies-browser";
-import type { CaseStudy, Industry, ServiceSlug } from "@/content/case-studies";
+import type { CaseStudy, Industry, ServiceSlug } from "@/content/en/case-studies";
 
 const industries: Industry[] = ["Finance", "Logistics"];
 const serviceSlugs: ServiceSlug[] = ["custom-software", "rpa-agents"];
@@ -30,6 +30,13 @@ const studies: CaseStudy[] = [
 ];
 
 describe("CaseStudiesBrowser", () => {
+const identityIndustryLabels: Record<Industry, string> = {
+  Finance: "Finance",
+  Logistics: "Logistics",
+  Healthcare: "Healthcare",
+  Retail: "Retail",
+};
+
   it("shows all case studies under the All filter", () => {
     render(
       <CaseStudiesBrowser
@@ -37,6 +44,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     expect(screen.getByText("summary for a")).toBeInTheDocument();
@@ -51,6 +59,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Finance" }));
@@ -66,6 +75,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Custom Software" }));
@@ -81,6 +91,7 @@ describe("CaseStudiesBrowser", () => {
         industries={industries}
         serviceSlugs={serviceSlugs}
         serviceLabels={{ "custom-software": "Custom Software", "rpa-agents": "RPA & Agents" }}
+        industryLabels={identityIndustryLabels}
       />,
     );
     fireEvent.click(screen.getByRole("button", { name: "Logistics" }));

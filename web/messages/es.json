@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "caseStudies": "Casos de estudio",
+    "demos": "Demos",
+    "howWeWork": "Cómo trabajamos",
+    "about": "Nosotros",
+    "primaryLabel": "Primario",
+    "toggleMenu": "Alternar menú",
+    "languageGroupLabel": "Idioma"
+  },
+  "cta": {
+    "bookCall": "Solicita una llamada",
+    "requestProposal": "Solicita una propuesta",
+    "contactUs": "Contáctanos",
+    "seeDemos": "Ver demos"
+  },
+  "footer": {
+    "servicesHeading": "Servicios",
+    "companyHeading": "Empresa",
+    "ctaHeading": "¿Listo para hablar?",
+    "ctaSubtitle": "Llamada de 30 minutos. Verás una demo en vivo sobre tu flujo de trabajo.",
+    "copyright": "© {year} Bexovar. Todos los derechos reservados."
+  },
+  "skipToContent": "Saltar al contenido",
+  "home": {
+    "servicesEyebrow": "Servicios",
+    "servicesTitle": "Lo que construimos",
+    "servicesSubtitle": "La mayoría de los proyectos combinan estos servicios. Te ayudamos a decidir la mezcla correcta."
+  },
+  "notFound": {
+    "heading": "Página no encontrada",
+    "body": "La página que buscas no existe o se ha movido.",
+    "backHome": "Volver al inicio"
+  },
+  "demos": {
+    "metaTitle": "Demos — Bexovar",
+    "metaDescription": "Demos cortas de automatización que realmente hemos entregado en finanzas, logística, salud, RPA, integraciones y agentes de IA. ¿Quieres una sobre tus datos? Solicita una llamada."
+  },
+  "caseStudiesIndex": {
+    "metaTitle": "Casos de estudio — Bexovar",
+    "metaDescription": "Proyectos anonimizados que respaldan nuestras cifras. Filtra por industria o servicio para ver lo que realmente hemos entregado."
+  },
+  "caseStudyDetail": {
+    "spanishNarrativeNoticeTitle": "Este caso está disponible solo en inglés por ahora.",
+    "spanishNarrativeNoticeBody": "El resumen en español aparece abajo; las secciones extensas están en inglés."
+  }
+}

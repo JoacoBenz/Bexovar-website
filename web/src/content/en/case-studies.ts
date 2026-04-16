@@ -43,6 +43,13 @@ export type CaseStudy = {
   relatedDemoSlugs: readonly string[];
 };
 
+export const industryLabels: Record<Industry, string> = {
+  Finance: "Finance",
+  Logistics: "Logistics",
+  Healthcare: "Healthcare",
+  Retail: "Retail",
+};
+
 export const caseStudies = [
   {
     slug: "finance-invoice-automation",
