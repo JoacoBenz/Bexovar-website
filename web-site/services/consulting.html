@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" data-initial-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Process Consulting — Bexovar</title>
+<meta name="description" content="Process diagnostics and ROI-aware roadmaps — sometimes the right answer is not software.">
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../site.css?v=2">
+<link rel="stylesheet" href="service.css?v=2">
+</head>
+<body data-service-slug="consulting">
+
+<a class="bx-sr-only" href="#main">Skip to content</a>
+
+<!-- ───────── Header (same as home, links go up one level) ───────── -->
+<header class="bx-header" role="banner">
+  <div class="bx-header__inner">
+    <a class="bx-header__brand" href="../index.html" aria-label="Bexovar home">
+      <svg width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="13" y="11" width="3" height="26" fill="currentColor"/>
+        <path d="M16 11 L27 11 L33 17.5 L27 24 L16 24" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
+        <path d="M16 24 L28 24 L34 30.5 L28 37 L16 37" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
+        <circle cx="14.5" cy="11" r="2.8" fill="currentColor"/>
+      </svg>
+      <span>BEXOVAR</span>
+    </a>
+    <nav class="bx-header__nav" aria-label="Primary">
+      <a href="../index.html#services" data-nav="services">Services</a>
+      <a href="../index.html#cases"    data-nav="caseStudies">Case studies</a>
+      <a href="../index.html#demos"    data-nav="demos">Demos</a>
+      <a href="../index.html#process"  data-nav="howWeWork">How we work</a>
+      <a href="#" data-nav="about">About</a>
+    </nav>
+    <div class="bx-header__right">
+      <div class="bx-lang" role="group" aria-label="Language">
+        <button data-bx-lang="en" aria-pressed="true">EN</button>
+        <button data-bx-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="bx-btn bx-btn--primary bx-btn--arrow bx-header__cta" href="mailto:hello@bexovar.io" data-cta-book>
+        <span>Book a call</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="bx-burger" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ───────── Breadcrumb ───────── -->
+  <nav class="bx-breadcrumb" aria-label="Breadcrumb">
+    <div class="bx-container">
+      <a href="../index.html" data-txt="serviceDetail.backToServices">← All services</a>
+    </div>
+  </nav>
+
+  <!-- ───────── Hero ───────── -->
+  <section class="svc-hero">
+    <div class="svc-hero__grid-bg" aria-hidden="true"></div>
+    <div class="bx-container">
+      <div class="svc-hero__inner">
+        <div class="svc-hero__left">
+          <div class="svc-hero__meta">
+            <span class="svc-hero__num" id="svc-num">01 / 04</span>
+            <span class="svc-hero__sep"></span>
+            <span class="bx-eyebrow" id="svc-eyebrow">Custom Software</span>
+          </div>
+          <h1 class="svc-hero__title bx-h1" id="svc-title">Internal tools shaped to how your team actually works.</h1>
+          <p class="svc-hero__body" id="svc-body">We build focused, maintainable apps that replace the spreadsheet-and-email duct tape your team has outgrown.</p>
+          <div class="svc-hero__ctas">
+            <a class="bx-btn bx-btn--accent bx-btn--arrow" href="mailto:hello@bexovar.io">
+              <span data-cta-book>Book a call</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="bx-btn bx-btn--ghost" href="../index.html#demos" data-cta-demos>See demos</a>
+          </div>
+        </div>
+
+        <!-- Right: service-specific motif -->
+        <div class="svc-hero__art" aria-hidden="true">
+          <div class="svc-motif" id="svc-motif"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Service nav (sibling services) ───────── -->
+  <section class="svc-siblings">
+    <div class="bx-container">
+      <div class="svc-siblings__row" id="svc-siblings"></div>
+    </div>
+  </section>
+
+  <!-- ───────── Examples ───────── -->
+  <section class="bx-section bx-section--tight">
+    <div class="bx-container">
+      <div class="bx-secthead">
+        <span class="bx-eyebrow" data-txt="serviceDetail.examplesHeading">What this looks like in practice</span>
+        <h2 class="bx-h2" id="examples-h">Three things we've shipped in this bucket.</h2>
+      </div>
+      <ol class="svc-examples" id="svc-examples"></ol>
+    </div>
+  </section>
+
+  <!-- ───────── Mini case ───────── -->
+  <section class="bx-section bx-section--tight" style="padding-top:0">
+    <div class="bx-container">
+      <div class="svc-minicase">
+        <div class="svc-minicase__num">
+          <span class="bx-eyebrow" data-txt="serviceDetail.miniCaseHeading">Evidence</span>
+          <div class="svc-minicase__stat" id="mc-stat">—</div>
+          <div class="svc-minicase__label" id="mc-label">—</div>
+        </div>
+        <div class="svc-minicase__body">
+          <p id="mc-summary">—</p>
+          <a class="bx-btn bx-btn--ghost bx-mt" href="#" id="mc-readmore">Read the full case →</a>
+        </div>
+        <!-- decorative grid -->
+        <div class="svc-minicase__grid" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Process recap ───────── -->
+  <section class="bx-section bx-section--tight" style="background:var(--bx-bg-soft);border-top:1px solid var(--bx-line);border-bottom:1px solid var(--bx-line)">
+    <div class="bx-container">
+      <div class="bx-secthead">
+        <span class="bx-eyebrow" data-txt="serviceDetail.processHeading">How we deliver</span>
+        <h2 class="bx-h2" id="svc-process-title">Four phases. Same for every engagement.</h2>
+      </div>
+      <div class="svc-process" id="svc-process"></div>
+    </div>
+  </section>
+
+  <!-- ───────── Related demos ───────── -->
+  <section class="bx-section bx-section--tight">
+    <div class="bx-container">
+      <div class="bx-secthead">
+        <span class="bx-eyebrow" data-txt="serviceDetail.demosHeading">Related demos</span>
+        <h2 class="bx-h2" id="related-demos-h">Short demos that show this service in action.</h2>
+      </div>
+      <div class="svc-demos" id="svc-related-demos"></div>
+    </div>
+  </section>
+
+  <!-- ───────── CTA ───────── -->
+  <section class="bx-section bx-section--tight">
+    <div class="bx-container">
+      <div class="bx-cta">
+        <div class="bx-cta__grid" aria-hidden="true"></div>
+        <div class="bx-cta__glow" aria-hidden="true"></div>
+        <div class="bx-cta__content">
+          <h2 class="bx-h2" style="color:#fff" data-txt="serviceDetail.ctaHeading">Ready to see what this looks like on your workflow?</h2>
+          <p data-txt="serviceDetail.ctaSubtitle">30-min call. We'll walk through your process and show what's possible.</p>
+          <div class="bx-cta__ctas">
+            <a class="bx-btn bx-btn--accent bx-btn--arrow" href="mailto:hello@bexovar.io">
+              <span data-cta-book>Book a call</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="bx-btn bx-btn--ghost" href="../index.html#demos" data-cta-demos>See demos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── Footer ───────── -->
+  <footer class="bx-footer" role="contentinfo">
+    <div class="bx-container">
+      <div class="bx-footer__grid">
+        <div class="bx-footer__brand">
+          <a class="bx-header__brand" href="../index.html" aria-label="Bexovar home">
+            <svg width="22" height="22" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <rect x="13" y="11" width="3" height="26" fill="currentColor"/>
+              <path d="M16 11 L27 11 L33 17.5 L27 24 L16 24" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
+              <path d="M16 24 L28 24 L34 30.5 L28 37 L16 37" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
+              <circle cx="14.5" cy="11" r="2.8" fill="currentColor"/>
+            </svg>
+            <span>BEXOVAR</span>
+          </a>
+          <p data-txt="footer.tagline"></p>
+          <div class="bx-mono bx-mt" data-txt="footer.location" style="font-size:12px;letter-spacing:0.04em;color:var(--bx-ink-50)">Buenos Aires · Remote-first</div>
+        </div>
+        <div class="bx-footer__col">
+          <h4 data-txt="footer.servicesHeading">Services</h4>
+          <div id="footer-services"></div>
+        </div>
+        <div class="bx-footer__col">
+          <h4 data-txt="footer.resourcesHeading">Resources</h4>
+          <div id="footer-resources"></div>
+        </div>
+        <div class="bx-footer__col">
+          <h4 data-txt="footer.companyHeading">Company</h4>
+          <div id="footer-company"></div>
+        </div>
+      </div>
+      <div class="bx-footer__bottom">
+        <span data-txt="footer.copyright">© 2026 Bexovar. All rights reserved.</span>
+        <span>Built with care in Buenos Aires.</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<aside class="bx-mobile-panel" aria-label="Mobile menu">
+  <a href="../index.html#services" data-nav="services">Services</a>
+  <a href="../index.html#cases"    data-nav="caseStudies">Case studies</a>
+  <a href="../index.html#demos"    data-nav="demos">Demos</a>
+  <a href="../index.html#process"  data-nav="howWeWork">How we work</a>
+</aside>
+
+<script src="../i18n.js"></script>
+<script src="../site.js"></script>
+<script src="service.js?v=2"></script>
+
+</body>
+</html>

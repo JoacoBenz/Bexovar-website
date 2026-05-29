@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bexovar — Logo explorations (round 2)</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    html, body { margin: 0; background: #fafaf9; }
+
+    @keyframes orbit-spin     { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+    @keyframes orbit-spin-rev { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
+
+    .board {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px; box-sizing: border-box;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .board--white { background: #ffffff; }
+    .board--soft  { background: #f8fafc; }
+    .board--dark  { background: #0f172a; color: #f8fafc; }
+
+    .favicon-frame {
+      display: inline-flex; align-items: center;
+      gap: 8px;
+      padding: 6px 10px 6px 8px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px 8px 2px 2px;
+      font-size: 13px;
+      color: #475569;
+      box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+    }
+    .favicon-frame--os {
+      flex-direction: column; align-items: center;
+      gap: 8px; padding: 16px 18px;
+      border-radius: 12px; font-size: 11px; color: #64748b;
+    }
+
+    .cover {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      width: 100%;
+      padding: 28px;
+      box-sizing: border-box;
+    }
+    .cover-cell {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+      padding: 18px; border-radius: 12px;
+      border: 1px solid #e2e8f0; background: #fff;
+      min-height: 170px;
+    }
+    .cover-cell .num {
+      font-family: ui-monospace, monospace;
+      font-size: 11px; color: #64748b; letter-spacing: 0.08em;
+    }
+    .cover-cell .name {
+      font-size: 13px; font-weight: 600; color: #0f172a;
+    }
+    .cover-cell .kicker { font-size: 10.5px; color: #64748b; }
+
+    .pill {
+      font-family: ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 0.05em;
+      color: #475569; background: #f1f5f9;
+      border: 1px solid #e2e8f0; border-radius: 999px;
+      padding: 3px 8px;
+    }
+
+    .avatar-square {
+      width: 180px; height: 180px; border-radius: 28px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px -10px rgba(15,23,42,0.2);
+    }
+    .avatar-circle {
+      width: 180px; height: 180px; border-radius: 9999px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px -10px rgba(15,23,42,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"
+          integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"
+          integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"
+          crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+          integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+          crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="logos.jsx"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel" data-presets="react">
+  function Cover() {
+    const items = [
+      { num: '01A', name: 'Orbit · tilted',  kicker: 'kept — horizon + tilted ring',        Comp: LogoOrbitA },
+      { num: '01B', name: 'Orbit · wave',    kicker: 'new — circular audio-wave ring',      Comp: LogoOrbitB },
+      { num: '01C', name: 'Orbit · arcs',    kicker: 'new — 3 arcs, trajectories',          Comp: LogoOrbitC },
+      { num: '05A', name: 'Vector · figure-8', kicker: 'kept — node rides the B strokes',   Comp: LogoVectorA },
+      { num: '05B', name: 'Vector · shadow', kicker: 'new — sky echo behind the B',         Comp: LogoVectorB },
+      { num: '05C', name: 'Vector · scanline', kicker: 'new — horizontal scan beam',        Comp: LogoVectorC },
+    ];
+    return (
+      <div className="cover">
+        {items.map((it) => (
+          <div className="cover-cell" key={it.num}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+              <span className="num">{it.num}</span>
+            </div>
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center', width: '100%' }}>
+              <it.Comp markSize={34}
+                       fontSize={it.num.startsWith('05') ? '13px' : '20px'}
+                       gap={10}
+                       animated />
+            </div>
+            <div className="name">{it.name}</div>
+            <div className="kicker">{it.kicker}</div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  function HeroCard({ Comp, markSize, fontSize, gap }) {
+    return (
+      <div className="board board--white">
+        <Comp markSize={markSize} fontSize={fontSize} gap={gap} animated />
+      </div>
+    );
+  }
+  function HeaderCard({ Comp, markSize, fontSize, gap }) {
+    return (
+      <div className="board board--soft">
+        <div style={{
+          background: '#fff', padding: '14px 20px',
+          borderRadius: 12, border: '1px solid #e2e8f0',
+          boxShadow: '0 1px 2px rgba(15,23,42,0.04)',
+          display: 'inline-flex', alignItems: 'center',
+        }}>
+          <Comp markSize={markSize} fontSize={fontSize} gap={gap} animated />
+        </div>
+      </div>
+    );
+  }
+  function AvatarCard({ Mark, bg = '#0284c7' }) {
+    return (
+      <div className="board board--soft" style={{ gap: 32, flexDirection: 'row' }}>
+        <div className="avatar-square" style={{ background: bg }}>
+          <Mark size={96} animated />
+        </div>
+        <div className="avatar-circle" style={{ background: '#fff', border: '1px solid #e2e8f0' }}>
+          <Mark size={96} animated />
+        </div>
+      </div>
+    );
+  }
+  function FaviconCard({ Mark }) {
+    return (
+      <div className="board board--soft" style={{ gap: 24, flexDirection: 'column' }}>
+        <div style={{ display: 'flex', gap: 24, alignItems: 'flex-end' }}>
+          <div className="favicon-frame">
+            <Mark size={16} animated />
+            <span>Bexovar — Home</span>
+          </div>
+          <div className="favicon-frame">
+            <Mark size={32} animated />
+            <span style={{ fontSize: 15 }}>Bexovar</span>
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: 16 }}>
+          <div className="favicon-frame favicon-frame--os">
+            <div style={{
+              width: 48, height: 48, borderRadius: 12, background: '#0284c7',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Mark size={30} animated />
+            </div>
+            <span>App icon</span>
+          </div>
+          <div className="favicon-frame favicon-frame--os">
+            <div style={{
+              width: 48, height: 48, borderRadius: 12, background: '#0f172a',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <Mark size={30} animated />
+            </div>
+            <span>Dark</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  function DarkCard({ Comp, markSize, fontSize, gap }) {
+    return (
+      <div className="board board--dark">
+        <div style={{ color: '#f8fafc' }}>
+          <Comp markSize={markSize} fontSize={fontSize} gap={gap} animated />
+        </div>
+      </div>
+    );
+  }
+
+  const DIRECTIONS = [
+    { id: 'orbit-a',  num: '01A', name: 'Orbit · tilted',    Comp: LogoOrbitA,  Mark: MarkOrbitA,  wordSize: '56px', headerWordSize: '22px', darkWordSize: '28px' },
+    { id: 'orbit-b',  num: '01B', name: 'Orbit · wave',      Comp: LogoOrbitB,  Mark: MarkOrbitB,  wordSize: '56px', headerWordSize: '22px', darkWordSize: '28px' },
+    { id: 'orbit-c',  num: '01C', name: 'Orbit · arcs',      Comp: LogoOrbitC,  Mark: MarkOrbitC,  wordSize: '56px', headerWordSize: '22px', darkWordSize: '28px' },
+    { id: 'vector-a', num: '05A', name: 'Vector · figure-8', Comp: LogoVectorA, Mark: MarkVectorA, wordSize: '34px', headerWordSize: '15px', darkWordSize: '19px' },
+    { id: 'vector-b', num: '05B', name: 'Vector · shadow',   Comp: LogoVectorB, Mark: MarkVectorB, wordSize: '34px', headerWordSize: '15px', darkWordSize: '19px' },
+    { id: 'vector-c', num: '05C', name: 'Vector · scanline', Comp: LogoVectorC, Mark: MarkVectorC, wordSize: '34px', headerWordSize: '15px', darkWordSize: '19px' },
+  ];
+
+  function App() {
+    return (
+      <DesignCanvas title="Bexovar — Logo round 2">
+        <DCSection id="overview" title="00 — All 6 variants">
+          <DCArtboard id="cover" label="Compare at a glance" width={1400} height={250}>
+            <Cover />
+          </DCArtboard>
+        </DCSection>
+
+        {DIRECTIONS.map((d) => (
+          <DCSection id={d.id} title={`${d.num} — ${d.name}`} key={d.id}>
+            <DCArtboard id={`${d.id}-hero`} label="Hero lockup" width={880} height={240}>
+              <HeroCard Comp={d.Comp} markSize={88} fontSize={d.wordSize} gap={24} />
+            </DCArtboard>
+            <DCArtboard id={`${d.id}-header`} label="Site header" width={460} height={200}>
+              <HeaderCard Comp={d.Comp} markSize={36} fontSize={d.headerWordSize} gap={12} />
+            </DCArtboard>
+            <DCArtboard id={`${d.id}-avatar`} label="Avatar · square + circle" width={520} height={260}>
+              <AvatarCard Mark={d.Mark} />
+            </DCArtboard>
+            <DCArtboard id={`${d.id}-favicon`} label="Favicon + app icon" width={460} height={260}>
+              <FaviconCard Mark={d.Mark} />
+            </DCArtboard>
+            <DCArtboard id={`${d.id}-dark`} label="On dark" width={560} height={200}>
+              <DarkCard Comp={d.Comp} markSize={44} fontSize={d.darkWordSize} gap={14} />
+            </DCArtboard>
+          </DCSection>
+        ))}
+      </DesignCanvas>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
