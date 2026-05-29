@@ -4,7 +4,6 @@
    Light + dark (auto), floating pill nav, section rhythm, reveal + fx.
    ============================================================================ */
 
-@import url('../colors_and_type.css');
 
 :root {
   --bx-sky-600: #0284c7;
@@ -798,3 +797,41 @@ html[data-reveal="on"] .bx-reveal[data-visible="true"] { opacity: 1; transform: 
 .bx-mt    { margin-top: 24px; }
 .bx-mt-lg { margin-top: 48px; }
 .bx-dot { width: 4px; height: 4px; background: var(--bx-ink-30); border-radius: 50%; display: inline-block; margin: 0 8px; vertical-align: middle; }
+
+/* ---------------------------------------------------------------------------
+   Broken image / video placeholder
+   --------------------------------------------------------------------------- */
+img {
+  min-height: 60px;
+}
+img[src=""], img:not([src]) {
+  visibility: hidden;
+}
+img::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: var(--bx-bg-soft, #fafaf9);
+  border: 1px dashed var(--bx-line, #e2e8f0);
+  border-radius: var(--bx-radius-sm, 8px);
+}
+.bx-demo__poster img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: var(--bx-bg-soft, #fafaf9);
+  border: 1px dashed var(--bx-line, #e2e8f0);
+  border-radius: var(--bx-radius-sm, 8px);
+}
+.bx-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bx-bg-soft, #fafaf9);
+  border: 1px dashed var(--bx-line, #e2e8f0);
+  border-radius: var(--bx-radius-sm, 8px);
+}

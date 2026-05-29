@@ -188,4 +188,19 @@
   // Helpers pages can use
   window.bxLang = () => htmlEl.dataset.lang;
   window.bxDict = () => window.BX_I18N?.[htmlEl.dataset.lang] || window.BX_I18N?.en;
+
+  // Broken image placeholder
+  document.addEventListener('error', function (e) {
+    if (e.target.tagName === 'IMG' && !e.target.dataset.placeholder) {
+      e.target.dataset.placeholder = 'true';
+      var wrap = e.target.closest('.bx-demo__poster') || e.target.parentElement;
+      if (!wrap) return;
+      var ph = document.createElement('div');
+      ph.className = 'bx-placeholder';
+      ph.setAttribute('aria-hidden', 'true');
+      ph.innerHTML = '<svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="4" stroke="#94a3b8" stroke-width="1.5" fill="none"/><circle cx="17" cy="21" r="3" stroke="#94a3b8" stroke-width="1.5"/><path d="M6 32l10-8 6 5 10-10 10 10v4a4 4 0 01-4 4H10a4 4 0 01-4-4v-1z" fill="#e2e8f0"/></svg>';
+      e.target.style.display = 'none';
+      wrap.insertBefore(ph, wrap.firstChild);
+    }
+  }, true);
 })();
