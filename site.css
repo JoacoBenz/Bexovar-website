@@ -835,3 +835,8 @@ img::after {
   border: 1px dashed var(--bx-line, #e2e8f0);
   border-radius: var(--bx-radius-sm, 8px);
 }
+.bx-poster--fallback {
+  background: linear-gradient(135deg, #0284c7 0%, #0f172a 100%);
+  aspect-ratio: 16/9;
+  border-radius: var(--bx-radius-sm, 8px);
+}

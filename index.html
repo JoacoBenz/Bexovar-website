@@ -417,7 +417,7 @@
     demos.innerHTML = t.demos.items.map(d => `
       <div class="bx-demo bx-reveal" data-demo-slug="${bxEscape(d.slug)}">
         <div class="bx-demo__poster">
-          <img src="${bxEscape(d.poster)}" alt="" loading="lazy"/>
+          <img src="${bxEscape(d.poster)}" alt="" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('bx-poster--fallback')"/>
           <div class="bx-demo__duration">${bxEscape(d.duration)}</div>
           <div class="bx-demo__play"><div class="bx-demo__play-btn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#0f172a"/></svg>
