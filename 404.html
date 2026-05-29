@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Bexovar</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bx-sky-600: #0284c7;
+    --bx-ink: #0f172a;
+    --bx-ink-50: #475569;
+    --bx-ink-30: #94a3b8;
+    --bx-bg: #ffffff;
+    --bx-line: #e2e8f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bx-ink: #e2e8f0;
+      --bx-ink-50: #94a3b8;
+      --bx-ink-30: #475569;
+      --bx-bg: #0f172a;
+      --bx-line: #1e293b;
+    }
+  }
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bx-bg);
+    color: var(--bx-ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    text-align: center;
+  }
+  .code {
+    font-size: clamp(64px, 12vw, 120px);
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: var(--bx-sky-600);
+    line-height: 1;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  p {
+    color: var(--bx-ink-50);
+    margin-top: 10px;
+    max-width: 380px;
+    line-height: 1.6;
+  }
+  .home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding: 10px 22px;
+    background: var(--bx-sky-600);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: opacity 0.15s;
+  }
+  .home:hover { opacity: 0.85; }
+  .brand {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--bx-ink);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<a class="brand" href="index.html" aria-label="Bexovar home">
+  <svg width="22" height="22" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <rect x="13" y="11" width="3" height="26" fill="currentColor"/>
+    <path d="M16 11 L27 11 L33 17.5 L27 24 L16 24" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
+    <path d="M16 24 L28 24 L34 30.5 L28 37 L16 37" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
+    <circle cx="14.5" cy="11" r="2.8" fill="currentColor"/>
+  </svg>
+  <span>BEXOVAR</span>
+</a>
+
+<div class="code">404</div>
+<h1>Page not found</h1>
+<p>The page you're looking for doesn't exist or has been moved.</p>
+<a class="home" href="index.html">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  Back to homepage
+</a>
+
+</body>
+</html>
