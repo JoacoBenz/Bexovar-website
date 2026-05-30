@@ -297,6 +297,15 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; color: var(--bx-ink); font-
   border-bottom: 1px solid var(--bx-line);
 }
 .bx-mobile-panel a:last-of-type { border-bottom: 0; }
+/* The CTA button inside the panel must keep its own button styling, not the
+   generic nav-link rule above (which would force dark text on a dark fill). */
+.bx-mobile-panel a.bx-btn {
+  display: inline-flex;
+  border-bottom: 0;
+  padding: 12px 20px;
+  font-size: 15px;
+}
+.bx-mobile-panel a.bx-btn--primary { color: var(--bx-bg); }
 .bx-mobile-panel .bx-lang { display: inline-flex; margin-top: 14px; }
 
 /* ---------------------------------------------------------------------------
