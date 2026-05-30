@@ -37,11 +37,25 @@
     const burger = document.querySelector('.bx-burger');
     const panel  = document.querySelector('.bx-mobile-panel');
     if (burger && panel) {
-      burger.addEventListener('click', () => {
-        const open = panel.dataset.open === 'true';
-        panel.dataset.open = open ? 'false' : 'true';
+      const setOpen = (open) => {
+        panel.dataset.open = open ? 'true' : 'false';
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      setOpen(false);
+      burger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setOpen(panel.dataset.open !== 'true');
       });
-      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => panel.dataset.open = 'false'));
+      panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+      // Close on tap outside or Escape
+      document.addEventListener('click', (e) => {
+        if (panel.dataset.open === 'true' && !panel.contains(e.target) && e.target !== burger) {
+          setOpen(false);
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && panel.dataset.open === 'true') setOpen(false);
+      });
     }
 
     // Reveal on scroll. Only opt into hide-then-reveal if IO is available.

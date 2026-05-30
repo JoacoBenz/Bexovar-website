@@ -105,6 +105,10 @@ button { font: inherit; color: inherit; }
 
 .bx-section { padding: var(--bx-section-py) 0; }
 .bx-section--tight { padding: clamp(3rem, 5vw, 5rem) 0; }
+/* Keep anchored section titles clear of the fixed header pill */
+:target, section[id], [id^="cta"], #services, #demos, #cases, #process, #proof {
+  scroll-margin-top: 92px;
+}
 .bx-section--dark {
   background: var(--bx-ink);
   color: #f8fafc;
