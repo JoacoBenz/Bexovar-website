@@ -107,7 +107,7 @@
         <!-- Orbit artwork -->
         <div class="bx-hero__art bx-reveal">
           <div class="bx-orbit" aria-hidden="true">
-            <svg viewBox="0 0 520 520">
+            <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <defs>
                 <radialGradient id="bx-core-grad" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stop-color="#0284c7" stop-opacity="0.9"/>
@@ -119,54 +119,61 @@
                   <stop offset="50%" stop-color="#38bdf8"/>
                   <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
                 </linearGradient>
+                <!-- soft glow for the orbiting bodies -->
+                <filter id="bx-glow" x="-60%" y="-60%" width="220%" height="220%">
+                  <feGaussianBlur stdDeviation="2.4" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
               </defs>
 
-              <!-- Soft glow behind -->
-              <circle cx="260" cy="260" r="220" fill="url(#bx-core-grad)" opacity="0.55"/>
+              <!-- Soft glow behind, gently breathing -->
+              <circle cx="260" cy="260" r="220" fill="url(#bx-core-grad)" opacity="0.55">
+                <animate attributeName="opacity" values="0.42;0.7;0.42" dur="6s" repeatCount="indefinite"/>
+              </circle>
 
-              <!-- Grid dots (subtle) -->
+              <!-- Grid dots (subtle), a couple twinkle -->
               <g opacity="0.14" fill="currentColor" style="color: var(--bx-ink-30)">
                 <circle cx="80"  cy="80"  r="1.5"/>
-                <circle cx="260" cy="50"  r="1.5"/>
+                <circle cx="260" cy="50"  r="1.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="4s" repeatCount="indefinite"/></circle>
                 <circle cx="440" cy="80"  r="1.5"/>
-                <circle cx="50"  cy="260" r="1.5"/>
+                <circle cx="50"  cy="260" r="1.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="5.5s" begin="-1s" repeatCount="indefinite"/></circle>
                 <circle cx="470" cy="260" r="1.5"/>
-                <circle cx="80"  cy="440" r="1.5"/>
+                <circle cx="80"  cy="440" r="1.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="4.8s" begin="-2s" repeatCount="indefinite"/></circle>
                 <circle cx="260" cy="470" r="1.5"/>
                 <circle cx="440" cy="440" r="1.5"/>
               </g>
 
-              <!-- Outer ring, tilted, slow -->
+              <!-- Outer ring, tilted — dot tracks the ellipse, with comet trail -->
               <g transform="translate(260 260) rotate(-18)">
-                <ellipse cx="0" cy="0" rx="220" ry="74" fill="none" stroke="url(#bx-ring-grad)" stroke-width="1.5" opacity="0.85">
-                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="28s" repeatCount="indefinite"/>
-                </ellipse>
-                <!-- orbiting body -->
-                <g>
-                  <circle cx="220" cy="0" r="7" fill="#0284c7"/>
-                  <circle cx="220" cy="0" r="14" fill="#0284c7" opacity="0.2"/>
-                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>
+                <path id="bx-orbit-outer" d="M-220,0 a220,74 0 1,0 440,0 a220,74 0 1,0 -440,0"
+                      fill="none" stroke="url(#bx-ring-grad)" stroke-width="1.5" opacity="0.85"/>
+                <g filter="url(#bx-glow)">
+                  <circle r="3"   fill="#7dd3fc" opacity="0.22"><animateMotion dur="16s" begin="-15.1s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-outer" href="#bx-orbit-outer"/></animateMotion></circle>
+                  <circle r="4.5" fill="#38bdf8" opacity="0.40"><animateMotion dur="16s" begin="-15.4s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-outer" href="#bx-orbit-outer"/></animateMotion></circle>
+                  <circle r="6"   fill="#0ea5e9" opacity="0.7" ><animateMotion dur="16s" begin="-15.7s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-outer" href="#bx-orbit-outer"/></animateMotion></circle>
+                  <circle r="7.5" fill="#0284c7"               ><animateMotion dur="16s" begin="0s"     repeatCount="indefinite"><mpath xlink:href="#bx-orbit-outer" href="#bx-orbit-outer"/></animateMotion></circle>
                 </g>
               </g>
 
-              <!-- Middle ring, reverse -->
+              <!-- Middle ring, reverse — dot tracks the ellipse, with comet trail -->
               <g transform="translate(260 260) rotate(22)">
-                <ellipse cx="0" cy="0" rx="165" ry="50" fill="none" stroke="#0284c7" stroke-width="1.2" opacity="0.45">
-                  <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="22s" repeatCount="indefinite"/>
-                </ellipse>
-                <g>
-                  <circle cx="-165" cy="0" r="5" fill="#38bdf8"/>
-                  <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="18s" repeatCount="indefinite"/>
+                <path id="bx-orbit-mid" d="M-165,0 a165,50 0 1,0 330,0 a165,50 0 1,0 -330,0"
+                      fill="none" stroke="#0284c7" stroke-width="1.2" opacity="0.45"/>
+                <g filter="url(#bx-glow)">
+                  <circle r="2.6" fill="#7dd3fc" opacity="0.22"><animateMotion dur="12s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" begin="-11.1s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-mid" href="#bx-orbit-mid"/></animateMotion></circle>
+                  <circle r="3.8" fill="#38bdf8" opacity="0.4" ><animateMotion dur="12s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" begin="-11.4s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-mid" href="#bx-orbit-mid"/></animateMotion></circle>
+                  <circle r="5"   fill="#38bdf8"               ><animateMotion dur="12s" keyPoints="1;0" keyTimes="0;1" calcMode="linear" begin="0s"     repeatCount="indefinite"><mpath xlink:href="#bx-orbit-mid" href="#bx-orbit-mid"/></animateMotion></circle>
                 </g>
               </g>
 
-              <!-- Inner ring, level -->
+              <!-- Inner ring, level — dot tracks the circle, with comet trail -->
               <g transform="translate(260 260)">
-                <circle cx="0" cy="0" r="90" fill="none" stroke="#0284c7" stroke-width="1" opacity="0.35"/>
-                <g>
-                  <circle cx="0" cy="-90" r="5" fill="#0284c7"/>
-                  <circle cx="0" cy="-90" r="10" fill="#0284c7" opacity="0.2"/>
-                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="9s" repeatCount="indefinite"/>
+                <path id="bx-orbit-inner" d="M-90,0 a90,90 0 1,0 180,0 a90,90 0 1,0 -180,0"
+                      fill="none" stroke="#0284c7" stroke-width="1" opacity="0.35"/>
+                <g filter="url(#bx-glow)">
+                  <circle r="2.4" fill="#7dd3fc" opacity="0.25"><animateMotion dur="8s" begin="-7.55s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-inner" href="#bx-orbit-inner"/></animateMotion></circle>
+                  <circle r="3.6" fill="#38bdf8" opacity="0.45"><animateMotion dur="8s" begin="-7.78s" repeatCount="indefinite"><mpath xlink:href="#bx-orbit-inner" href="#bx-orbit-inner"/></animateMotion></circle>
+                  <circle r="5"   fill="#0284c7"               ><animateMotion dur="8s" begin="0s"     repeatCount="indefinite"><mpath xlink:href="#bx-orbit-inner" href="#bx-orbit-inner"/></animateMotion></circle>
                 </g>
               </g>
 
@@ -174,18 +181,18 @@
               <g transform="translate(260 260)">
                 <!-- ring halo -->
                 <circle cx="0" cy="0" r="56" fill="#ffffff" opacity="0.85"/>
-                <circle cx="0" cy="0" r="56" fill="none" stroke="#0284c7" stroke-width="1" opacity="0.5"/>
+                <circle cx="0" cy="0" r="56" fill="none" stroke="#0284c7" stroke-width="1" opacity="0.5">
+                  <animate attributeName="r" values="56;59;56" dur="6s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.5;0.15;0.5" dur="6s" repeatCount="indefinite"/>
+                </circle>
                 <g transform="translate(-24 -24) scale(1)">
                   <rect x="13" y="11" width="3" height="26" fill="#0f172a"/>
                   <path d="M16 11 L27 11 L33 17.5 L27 24 L16 24" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
                   <path d="M16 24 L28 24 L34 30.5 L28 37 L16 37" stroke="#0284c7" stroke-width="3" stroke-linejoin="miter" fill="none"/>
-                  <!-- figure-8 node -->
-                  <g>
-                    <circle r="2.6" fill="#0284c7">
-                      <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
-                        <mpath href="#bx-hero-fig8"/>
-                      </animateMotion>
-                    </circle>
+                  <!-- figure-8 node + glowing trail -->
+                  <g filter="url(#bx-glow)">
+                    <circle r="1.8" fill="#7dd3fc" opacity="0.4"><animateMotion dur="5s" begin="-4.85s" repeatCount="indefinite" rotate="auto"><mpath xlink:href="#bx-hero-fig8" href="#bx-hero-fig8"/></animateMotion></circle>
+                    <circle r="2.6" fill="#0284c7"><animateMotion dur="5s" begin="0s" repeatCount="indefinite" rotate="auto"><mpath xlink:href="#bx-hero-fig8" href="#bx-hero-fig8"/></animateMotion></circle>
                   </g>
                   <path id="bx-hero-fig8" d="M16 24 L27 11 L33 17.5 L27 24 L16 24 L28 24 L34 30.5 L28 37 L16 37 Z" fill="none" stroke="none"/>
                 </g>
