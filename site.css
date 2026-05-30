@@ -304,8 +304,9 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; color: var(--bx-ink); font-
   border-bottom: 0;
   padding: 12px 20px;
   font-size: 15px;
+  color: var(--bx-bg);
+  background: var(--bx-ink);
 }
-.bx-mobile-panel a.bx-btn--primary { color: var(--bx-bg); }
 .bx-mobile-panel .bx-lang { display: inline-flex; margin-top: 14px; }
 
 /* ---------------------------------------------------------------------------
