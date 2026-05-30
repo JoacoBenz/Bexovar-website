@@ -300,12 +300,19 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; color: var(--bx-ink); font-
 /* The CTA button inside the panel must keep its own button styling, not the
    generic nav-link rule above (which would force dark text on a dark fill). */
 .bx-mobile-panel a.bx-btn {
-  display: inline-flex;
-  border-bottom: 0;
-  padding: 12px 20px;
-  font-size: 15px;
-  color: var(--bx-bg);
-  background: var(--bx-ink);
+  display: inline-flex !important;
+  border-bottom: 0 !important;
+  padding: 12px 20px !important;
+  font-size: 15px !important;
+  color: #ffffff !important;
+  background: #0f172a !important;
+  border-radius: 9999px !important;
+}
+@media (prefers-color-scheme: dark) {
+  .bx-mobile-panel a.bx-btn {
+    color: #0f172a !important;
+    background: #e2e8f0 !important;
+  }
 }
 .bx-mobile-panel .bx-lang { display: inline-flex; margin-top: 14px; }
 
