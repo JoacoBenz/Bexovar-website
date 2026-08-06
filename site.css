@@ -501,9 +501,8 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; color: var(--bx-ink); font-
 
 .bx-demos-grid {
   display: grid; gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
-@media (max-width: 1000px) { .bx-demos-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px)  { .bx-demos-grid { grid-template-columns: 1fr; } }
 
 .bx-demo {
@@ -528,6 +527,7 @@ h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; color: var(--bx-ink); font-
   border: 1px solid var(--bx-line-2);
 }
 .bx-demo__poster img { width: 100%; height: 100%; object-fit: cover; }
+.bx-demo__poster video { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--bx-ink); }
 .bx-demo__play {
   position: absolute; inset: 0; display: grid; place-items: center;
   opacity: 0; transition: opacity 200ms ease;
